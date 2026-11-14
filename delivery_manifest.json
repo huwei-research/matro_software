@@ -2,7 +2,7 @@
   "project": "matro",
   "source_root": "Research/matro",
   "exported_at": "2026-11-14T22:14:47.249889+08:00",
-  "status": "verified_for_publication",
+  "status": "published",
   "repository": "https://github.com/huwei-research/matro_software",
   "files": {
     "CITATION.cff": {
@@ -694,5 +694,9 @@
     ".github/workflows/solver.yml": "GitHub OAuth credential lacks workflow scope; retained in Research; local checks passed"
   },
   "source_version": "0.1.0rc2",
-  "git_storage": "exact original bytes; no line-ending conversion"
+  "git_storage": "exact original bytes; no line-ending conversion",
+  "release_url": "https://github.com/huwei-research/matro_software/releases/tag/v0.1.0rc2",
+  "release_tag": "v0.1.0rc2",
+  "release_commit": "b1251b01196bb291d2ce6f5e3d43ebed5c17b3ab",
+  "remote_clone_verified": true
 }

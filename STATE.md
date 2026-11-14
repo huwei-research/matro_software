@@ -1,3 +1,5 @@
 # matro software delivery
 
-Source: Research/matro/software. Release checks completed on 2026-11-14T22:12:39.270179+08:00. Public repository: https://github.com/huwei-research/matro_software. Publication status is recorded in delivery_manifest.json and the GitHub release.
+Published: https://github.com/huwei-research/matro_software/releases/tag/v0.1.0rc2
+
+Release commit: b1251b01196bb291d2ce6f5e3d43ebed5c17b3ab. Independent GitHub clone, asset SHA256, downloaded-wheel tests and compact-data checks passed. Source: Research/matro/software. Last verified: 2026-11-14T22:26:31.534085+08:00.

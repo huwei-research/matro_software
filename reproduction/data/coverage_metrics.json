@@ -1,0 +1,39 @@
+{
+  "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\paper_figures_20261109\\data",
+  "source_state_sha256": "5782b0f74a98aad2b3008399200a774bd3bcf0a6a5264e6bce6c1db9b84bbe20",
+  "center": [
+    1.9055768805330573,
+    3.6320586092832214
+  ],
+  "delta": 0.1,
+  "display_rotation": [
+    [
+      -0.23967636872947393,
+      0.9708528406883575
+    ],
+    [
+      -0.9708528406883575,
+      -0.23967636872947393
+    ]
+  ],
+  "threshold": 0.1,
+  "fraction_below": [
+    0.7090603298611111,
+    0.9939214409722222
+  ],
+  "rms": [
+    0.1848557033399664,
+    0.024555578028465436
+  ],
+  "rms_ratio": 7.528053427440278,
+  "area_sphere": 0.031415926535897934,
+  "area_ellipse": 0.031415926535897906,
+  "axis_ratio": 4.448339197644191,
+  "interpolation_residual": 8.881784197001252e-16,
+  "area_quadrature_samples_per_region": 1843200,
+  "rms_quadrature_samples_per_region": 768,
+  "offline_objective_values": 4009137,
+  "optimizer_calls": 0,
+  "display": "u=U.T@(x-center)/delta; orthogonal rotation only; long ellipse axis horizontal; identical units and color scales.",
+  "color": "PowerNorm gamma=0.5, minimum 0, maximum 0.4; above 0.4 saturated; exterior field shown at 6% opacity."
+}

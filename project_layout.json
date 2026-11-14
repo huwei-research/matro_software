@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "project_id": "matro",
+  "role": "delivery",
+  "source_root": "Research/matro",
+  "consolidation_status": "aligned",
+  "research_state": "Research/matro/STATE.md",
+  "research_log": "Research/matro/research_log.md",
+  "version_index": "Research/matro/paper/versions.json",
+  "entries": {
+    "solver": "src/matro",
+    "experiments": "codes/experiments",
+    "manuscripts": "paper",
+    "results": "results"
+  },
+  "path_base": "workspace_root",
+  "policy": "research_harness/policies/research_delivery_layout.md",
+  "repositories": [
+    {
+      "path": "Research/matro",
+      "role": "研究与开发主仓",
+      "maintenance": "source"
+    },
+    {
+      "path": "Publish/matro_paper",
+      "role": "确定版本的论文交付",
+      "maintenance": "delivery"
+    },
+    {
+      "path": "Public/matro",
+      "role": "确定版本的开源代码交付",
+      "maintenance": "delivery"
+    }
+  ]
+}

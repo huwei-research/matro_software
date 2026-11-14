@@ -1,0 +1,152 @@
+{
+  "algorithm_id": "matro-official-python-fullq-001",
+  "implementation_id": "pdfo-2.2.0-scalar-python-002-fsincos",
+  "note": "Initial namespace copy. Release wrapper and selectable math backend are separate changes; generated.py numerical operations are unchanged.",
+  "files": [
+    {
+      "source": "solvers/matro/python_core.py",
+      "target": "src/matro/_solver.py",
+      "source_sha256": "d447c193f198e8feb6a1a25975fc1e3bc4814da3b3c71fa04185eac0edf0c634",
+      "namespace_copy_sha256": "9a182eedfa5b1900597e5b8053883d383c2ee2ea776c60e829063198b0ecd8db"
+    },
+    {
+      "source": "solvers/matro/official_core.py",
+      "target": "src/matro/_controller.py",
+      "source_sha256": "b76a0535252740eb3c66fdf6ef227824c2b8f7a429d1b21ffa155ea794e17dfe",
+      "namespace_copy_sha256": "3dfe503c98fda61fc05a4edb44b62eedc1d8f050988d923a99e79d90945400f5"
+    },
+    {
+      "source": "solvers/matro/_official_transport.py",
+      "target": "src/matro/_transport.py",
+      "source_sha256": "964129a5086e6084035598e4571c482d5565e7c5b537c432b1173dda4b2803b1",
+      "namespace_copy_sha256": "37189055860f12607092f1921039e3627017ad5f6d3f4b669bb3d9fa32f1236b"
+    },
+    {
+      "source": "solvers/matro/_metric.py",
+      "target": "src/matro/_metric.py",
+      "source_sha256": "f5517282fb7a91c1e9e0257fe9e3667e4e104e5963f50c9f1298518eb4981ac3",
+      "namespace_copy_sha256": "30a93baf6f4facbaaa584800eedd0f2d523197035a7a19da8fadfd9a8a3f0881"
+    },
+    {
+      "source": "solvers/_metric_utils.py",
+      "target": "src/matro/_metric_utils.py",
+      "source_sha256": "01739af9d654aeff99db9d65104aa49af9cf447ae0840c9b0942f625fcce6864",
+      "namespace_copy_sha256": "c5cfb09312cfef634ddaa1ccdc67127950bdf52317aa58040344f450977880c3"
+    },
+    {
+      "source": "solvers/newuoa/official_python/generate.py",
+      "target": "src/matro/_newuoa/generate.py",
+      "source_sha256": "adc2e754505d7b29b1de5bfa20add0e3e5581a6cbebc6940a6227fb314963687",
+      "namespace_copy_sha256": "f5ea2cec1afd2892528899b98036f71f431b9e32996c79f16de477bc53e299f9"
+    },
+    {
+      "source": "solvers/newuoa/official_python/generated.py",
+      "target": "src/matro/_newuoa/generated.py",
+      "source_sha256": "e5b13ab66901ad4ba6249b660b2e2f23bf3a571a35eeedb9921862f4fda3e0ff",
+      "namespace_copy_sha256": "11e6d6d66c68958c422b73a52c6937f2631c05dfe1c64389753d09a8b0306d1a"
+    },
+    {
+      "source": "solvers/newuoa/official_python/LICENSE.txt",
+      "target": "src/matro/_newuoa/LICENSE.txt",
+      "source_sha256": "3788ecf265bb1b6836cfd826ff325a7db6aa958cf97281b680dc10fa1b4a49b2",
+      "namespace_copy_sha256": "5d3b2a66bef92d1b567fa7157ed50803fea659abb7ab6081fe8accab95695736"
+    },
+    {
+      "source": "solvers/newuoa/official_python/provenance.json",
+      "target": "src/matro/_newuoa/provenance.json",
+      "source_sha256": "f18cc6f031bfa2f691c54373e19be23de2d3631446b39664a196a472e67c01ef",
+      "namespace_copy_sha256": "9cd77174a8002108fe3a71fb317bcb4635ed06b3ede72c4544d7fb3656968074"
+    },
+    {
+      "source": "solvers/newuoa/official_python/README.md",
+      "target": "src/matro/_newuoa/README.md",
+      "source_sha256": "c5169bce6ccbb35cdc836b12b470bff319806fa920ebacf9d4f3871150d2ac36",
+      "namespace_copy_sha256": "dfb3ccce045a9be7c9f42f6d59eac6c3c451ed862b752cdea0ac10b4978fa41a"
+    },
+    {
+      "source": "solvers/newuoa/official_python/runtime.py",
+      "target": "src/matro/_newuoa/runtime.py",
+      "source_sha256": "932d6966c260296fbbe35fd0e78e1dca2cb0c1035da99aafedf3d973c84f8764",
+      "namespace_copy_sha256": "ffbe882e3707f008589f9d254e28c8bdee8940a7a3a821cdbc845c27ef81645b"
+    },
+    {
+      "source": "solvers/newuoa/official_python/source_map.json",
+      "target": "src/matro/_newuoa/source_map.json",
+      "source_sha256": "10bada2fa6798b82a549d72840a1ebaf4748e669522db29fd85412a70bbcd68f",
+      "namespace_copy_sha256": "74ecee854d73852712ff01219a65217cf44f83c706185b0c8fc8681d5aeca85c"
+    },
+    {
+      "source": "solvers/newuoa/official_python/x87_math.py",
+      "target": "src/matro/_newuoa/x87_math.py",
+      "source_sha256": "7faf1ab80ab090022a223e724c94be7d972aa36ccbbcc7b959aa9cd5ea1a51de",
+      "namespace_copy_sha256": "f0ee48d0fcc21c9f3ea0fbdfcc42cfd39e7f09374cba63d5ea4740793165d123"
+    },
+    {
+      "source": "solvers/newuoa/official_python/__init__.py",
+      "target": "src/matro/_newuoa/__init__.py",
+      "source_sha256": "8bb0fd36cfe864b01d9c92b829b190963c68febb05261c6bd8de44ea5c93f07a",
+      "namespace_copy_sha256": "d358f6d1636f0f01a46185b74891d02e0c5b6691f24146367849a4287dc6946f"
+    },
+    {
+      "source": "solvers/newuoa/official_python/reference_source/bigden.f",
+      "target": "src/matro/_newuoa/reference_source/bigden.f",
+      "source_sha256": "a862fe730493cc696d266216e690471e618bb7900cf5e93f911251d30e906389",
+      "namespace_copy_sha256": "b942ccefd9b223a0f0ee8303c3c45a08c767f028200eb819c932ab38cbf3f259"
+    },
+    {
+      "source": "solvers/newuoa/official_python/reference_source/biglag.f",
+      "target": "src/matro/_newuoa/reference_source/biglag.f",
+      "source_sha256": "be75ec0fbd4398acebcb9e1aa9b73c975245d8361b9597ba514bedcb78635f18",
+      "namespace_copy_sha256": "3f9bd297b326bc508c92d69b6d5ba3ff7a6dbc878109ea73e404eee85cdfa2a4"
+    },
+    {
+      "source": "solvers/newuoa/official_python/reference_source/newuoa.f",
+      "target": "src/matro/_newuoa/reference_source/newuoa.f",
+      "source_sha256": "357c7b9b6ab02da2dd9069bf72b679576c8e846c30fb08e9a965dd21757ee9f4",
+      "namespace_copy_sha256": "fb272caa5ed0cc68a0ce236c0b2d89c183d142d5cebec7655a5f11e8542076c3"
+    },
+    {
+      "source": "solvers/newuoa/official_python/reference_source/newuob.f",
+      "target": "src/matro/_newuoa/reference_source/newuob.f",
+      "source_sha256": "40d87ea0b7c86258f3cf3b84fafebcdf04e4fab709866db0796468535799d137",
+      "namespace_copy_sha256": "16f5bca0a7bdc9a114129a437af7c0d6862a2e6da351809e00bc600c25c2e2b5"
+    },
+    {
+      "source": "solvers/newuoa/official_python/reference_source/trsapp.f",
+      "target": "src/matro/_newuoa/reference_source/trsapp.f",
+      "source_sha256": "765b64eacec7df977915b64ba633040a8c2ee4d7e27de6f19576037ed3fc0ece",
+      "namespace_copy_sha256": "7a23aa4353e1a3ff38f147c544789b29386c3c0974128d0d6aea5f8e2d0828d1"
+    },
+    {
+      "source": "solvers/newuoa/official_python/reference_source/update.f",
+      "target": "src/matro/_newuoa/reference_source/update.f",
+      "source_sha256": "47860b903a9efee55c4fd95b389d5af1fab9b7e42bd456e766d7952d05c575da",
+      "namespace_copy_sha256": "f6ddf5488829994c0d2a6c4c804d87f120afcee3cd112fc79306702149006838"
+    }
+  ],
+  "release_files": {
+    "src/matro/_api.py": "28e00c26e6d6b13552579295dd2fee03fffac133f5f186d727be967bdbcdacf6",
+    "src/matro/_controller.py": "a39db89c62b35ffafb5365165f9284b46c17e44194d91b06340e1d74dd1936d3",
+    "src/matro/_metric.py": "847d5d9c4f605103a60e47f4412bbd5ae17a1bb19efbaec3f9258c50a2bc8f76",
+    "src/matro/_metric_utils.py": "01739af9d654aeff99db9d65104aa49af9cf447ae0840c9b0942f625fcce6864",
+    "src/matro/_solver.py": "9625e7eb3236cb3f5cca36e832907a1ce2eac45b2f07cb6da086017dfa4a69bc",
+    "src/matro/_transport.py": "1e658e15afbdb9a6efbae269b7585eaa668bcc92b7c67a424a6824eab3930bf6",
+    "src/matro/__init__.py": "f4f72bf414dae8c1d2ffd49d577d41a6bec80735f2622fd985897607206715ec",
+    "src/matro/_newuoa/generate.py": "c8231c77d260871ac302ae044fb360ec351024d991ccd7109c044a44ec20a3f0",
+    "src/matro/_newuoa/generated.py": "9bcae8288e2edc0b26570374ecfe6139b8e80a31011dbef7d360d23fea62d313",
+    "src/matro/_newuoa/LICENSE.txt": "5d3b2a66bef92d1b567fa7157ed50803fea659abb7ab6081fe8accab95695736",
+    "src/matro/_newuoa/provenance.json": "9cd77174a8002108fe3a71fb317bcb4635ed06b3ede72c4544d7fb3656968074",
+    "src/matro/_newuoa/README.md": "f4e37c12014a7c52aea3a3f96c655a49089eb6983780b0a2c1e1103ae0e9a2c8",
+    "src/matro/_newuoa/runtime.py": "932d6966c260296fbbe35fd0e78e1dca2cb0c1035da99aafedf3d973c84f8764",
+    "src/matro/_newuoa/source_map.json": "74ecee854d73852712ff01219a65217cf44f83c706185b0c8fc8681d5aeca85c",
+    "src/matro/_newuoa/x87_math.py": "b5c991a5bcc9f02cd77c4c10be9b31a4160092c468780065541cda70f55c42d8",
+    "src/matro/_newuoa/__init__.py": "8bb0fd36cfe864b01d9c92b829b190963c68febb05261c6bd8de44ea5c93f07a",
+    "src/matro/_newuoa/reference_source/bigden.f": "b942ccefd9b223a0f0ee8303c3c45a08c767f028200eb819c932ab38cbf3f259",
+    "src/matro/_newuoa/reference_source/biglag.f": "3f9bd297b326bc508c92d69b6d5ba3ff7a6dbc878109ea73e404eee85cdfa2a4",
+    "src/matro/_newuoa/reference_source/newuoa.f": "fb272caa5ed0cc68a0ce236c0b2d89c183d142d5cebec7655a5f11e8542076c3",
+    "src/matro/_newuoa/reference_source/newuob.f": "16f5bca0a7bdc9a114129a437af7c0d6862a2e6da351809e00bc600c25c2e2b5",
+    "src/matro/_newuoa/reference_source/trsapp.f": "7a23aa4353e1a3ff38f147c544789b29386c3c0974128d0d6aea5f8e2d0828d1",
+    "src/matro/_newuoa/reference_source/update.f": "f6ddf5488829994c0d2a6c4c804d87f120afcee3cd112fc79306702149006838"
+  },
+  "generated_ast_unchanged": true
+}

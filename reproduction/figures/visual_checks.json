@@ -1,0 +1,250 @@
+{
+  "interpolation_coverage": {
+    "page_points": [
+      0.0,
+      0.0,
+      451.2756042480469,
+      183.60000610351562
+    ],
+    "font_size_counts": {
+      "8.0": 18,
+      "9.0": 17,
+      "6.3": 5,
+      "9.5": 2
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "data_profiles": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      356.3999938964844
+    ],
+    "font_size_counts": {
+      "8.0": 34,
+      "9.0": 18,
+      "9.5": 8,
+      "6.65": 8,
+      "8.5": 10
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "performance_profiles": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      356.3999938964844
+    ],
+    "font_size_counts": {
+      "7.7": 32,
+      "9.0": 6,
+      "8.0": 10,
+      "9.5": 8,
+      "6.65": 8,
+      "8.5": 10
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "descent_nine": {
+    "page_points": [
+      0.0,
+      0.0,
+      451.2756042480469,
+      406.79998779296875
+    ],
+    "font_size_counts": {
+      "8.0": 48,
+      "5.6": 48,
+      "8.5": 43
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "anisotropy_success": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      356.3999938964844
+    ],
+    "font_size_counts": {
+      "8.0": 34,
+      "5.6": 24,
+      "8.5": 20,
+      "9.0": 20
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "anisotropy_budget_linear": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      356.3999938964844
+    ],
+    "font_size_counts": {
+      "8.0": 48,
+      "5.6": 24,
+      "8.5": 22,
+      "9.0": 18
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "shape_descent": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      356.3999938964844
+    ],
+    "font_size_counts": {
+      "8.0": 31,
+      "9.0": 10,
+      "5.6": 12,
+      "9.5": 16
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "four_trajectories": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      471.6000061035156
+    ],
+    "font_size_counts": {
+      "7.5": 57,
+      "9.0": 12,
+      "6.3": 12,
+      "8.5": 12,
+      "8.0": 16,
+      "5.25": 12,
+      "9.5": 20,
+      "6.65": 2
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "trajectory_rosenbrock": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      331.20001220703125
+    ],
+    "font_size_counts": {
+      "7.5": 14,
+      "9.0": 3,
+      "6.3": 3,
+      "8.5": 6,
+      "8.0": 4,
+      "5.25": 3,
+      "10.5": 4,
+      "7.35": 1
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "trajectory_cubic_valley": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      331.20001220703125
+    ],
+    "font_size_counts": {
+      "7.5": 15,
+      "9.0": 3,
+      "6.3": 3,
+      "8.5": 6,
+      "8.0": 4,
+      "5.25": 3,
+      "10.5": 4,
+      "7.35": 1
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "trajectory_levy": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      331.20001220703125
+    ],
+    "font_size_counts": {
+      "7.5": 13,
+      "9.0": 3,
+      "6.3": 3,
+      "8.5": 6,
+      "8.0": 4,
+      "5.25": 3,
+      "10.5": 6
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "trajectory_different_powers": {
+    "page_points": [
+      0.0,
+      0.0,
+      424.1990661621094,
+      331.20001220703125
+    ],
+    "font_size_counts": {
+      "7.5": 15,
+      "9.0": 3,
+      "6.3": 3,
+      "8.5": 6,
+      "8.0": 4,
+      "5.25": 3,
+      "10.5": 6
+    },
+    "outside_text": [],
+    "normal_tick_size_min_points": 7.5,
+    "subscripts_and_superscripts_smaller": true,
+    "visual_review": "All panels inspected in exported PNGs; labels, legends and lines readable."
+  },
+  "palette": {
+    "contrast_against_white": {
+      "#274C77": 8.799772192272098,
+      "#B66A50": 4.0646726041714585,
+      "#4F7A68": 4.865434121116739,
+      "#80719A": 4.4243046812517415,
+      "#70757C": 4.6413844905193775,
+      "#A78539": 3.4669535625836048
+    },
+    "coverage_luminance_strictly_decreasing": true,
+    "line_style_redundancy": true
+  }
+}

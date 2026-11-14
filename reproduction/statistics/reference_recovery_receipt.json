@@ -1,0 +1,14 @@
+{
+  "archive": "D:\\Desktop\\2026Projects\\Research\\matro\\results\\received_selection_20261104\\archives\\01_experiments.zip",
+  "archive_bytes": 20735616428,
+  "source_analysis": "D:\\Desktop\\2026Projects\\Research\\matro\\results\\received_selection_20261104\\review\\MATRO_selection_20261030\\formal_dimension_order_20261101\\analysis\\overall_le25_20261104",
+  "queried_saved_runs": 4776,
+  "changed_threshold_records": 15096,
+  "saved_queries_read": 6024875,
+  "exact_pooled_hit_checks": 15096,
+  "pooled_hit_mismatches": 0,
+  "new_objective_evaluations": 0,
+  "optimizer_runs": 0,
+  "runs_input_sha256": "0087858e13b02776bac0536ded38b114152cf9e58ee6bdf5690483124bc65c59",
+  "references_input_sha256": "238ebd9e24772051c2e1e39b7dda76c17176f5c3a724f0ba4e0a0cd864976036"
+}

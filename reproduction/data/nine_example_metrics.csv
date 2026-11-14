@@ -1,0 +1,10 @@
+instance_id,name,n,matro_success,full_success,matro_median_hit,full_median_hit,capped_geomean_full_over_matro,paired_wins_full,fastest_matched_starts
+cutest_palmer8c_n8,PALMER8C,8,20,0,78.5,,58.98137633298217,20,20
+cutest_brownbs_n2,BROWNBS,2,20,14,136.0,158.5,2.473232356353156,19,17
+cutest_nondquar_n12,NONDQUAR,12,20,20,609.0,1019.5,1.6525348287941382,20,20
+mw_07,rosenbrock,2,20,20,99.5,282.0,2.851041136011096,20,20
+mw_43,cube,5,20,3,1318.5,2830.0,2.26748150501824,20,19
+cutest_watson_n12,WATSON,12,20,20,625.5,1398.5,2.409038023525134,20,20
+cutest_yfitu_n3,YFITU,3,20,1,311.0,1992.0,6.470335223735216,20,20
+cutest_kirby2ls_n5,KIRBY2LS,5,20,20,156.0,582.5,3.5813826336374737,20,20
+cutest_himmelbf_n4,HIMMELBF,4,20,19,172.5,973.0,6.218109707740324,20,20

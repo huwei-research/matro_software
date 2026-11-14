@@ -1,0 +1,180 @@
+{
+  "question": "Same six-point quadratic, center and radius; compare two equal-area domains.",
+  "coordinate_convention": "Physical s=x-center; induced y=M**(1/2)s; L=M**(-1/2).",
+  "objective": "f(x)=(1-x1)^2+100*(x2-x1^2)^2",
+  "taylor_remainder": "R(s)=400*center1*s1^3-200*s1^2*s2+100*s1^4",
+  "exact_identity": "ared-pred=sum_i((ell_i(s)-ell_i(0))*(r_i+R(s_i)))-R(s)",
+  "optimizer_trajectories_started": 0,
+  "offline_objective_evaluations": 9,
+  "offline_objective_evaluation_breakdown": {
+    "sample_validation": 6,
+    "center": 1,
+    "candidates": 2
+  },
+  "subproblem_method": "Secular root above -lambda_min; boundary norm, stationarity and positive shifted Hessian checked.",
+  "model_coefficients": [
+    0.8201392694664706,
+    2.087838643914237,
+    -0.0021671672083787012,
+    2941.0029496249736,
+    -769.4378668913542,
+    200.61680300721605
+  ],
+  "gradient": [
+    2.087838643914237,
+    -0.0021671672083787012
+  ],
+  "hessian": [
+    [
+      2941.0029496249736,
+      -769.4378668913542
+    ],
+    [
+      -769.4378668913542,
+      200.61680300721605
+    ]
+  ],
+  "hessian_eigenvalues": [
+    -0.6428557601670946,
+    3142.262608392357
+  ],
+  "maximum_sample_value_discrepancy": 2.708944180085382e-14,
+  "maximum_interpolation_residual": 8.881784197001252e-16,
+  "results": [
+    {
+      "region": "sphere",
+      "metric": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "physical_step": [
+        -0.02592574164797673,
+        -0.09658082584034144
+      ],
+      "predicted_decrease": 0.05648648401752506,
+      "actual_decrease": 0.04578222987038305,
+      "acceptance_ratio": 0.810498841743788,
+      "absolute_reduction_error": 0.01070425414714201,
+      "lagrange_differences": [
+        0.19426525534187153,
+        0.3200697719891525,
+        -0.22448622188086997,
+        0.09929410708274856,
+        -0.0713470425270006,
+        -0.31779587000590226
+      ],
+      "lambda_dec": 1.2272582688275455,
+      "weighted_sample_residual_and_remainder": -0.01095833669583749,
+      "trial_taylor_remainder": -0.0002540825487036581,
+      "exact_identity_residual": -8.179221189230645e-15,
+      "kkt_multiplier": 5.9053509548986876,
+      "kkt_residual": 1.734723475976807e-14,
+      "shifted_hessian_minimum_eigenvalue": 5.262495194731593,
+      "relative_sample_radius": 2.100632936006277
+    },
+    {
+      "region": "learned_ellipse",
+      "metric": [
+        [
+          4.205719167166988,
+          -0.9827766794254132
+        ],
+        [
+          -0.9827766794254132,
+          0.46742303123074636
+        ]
+      ],
+      "physical_step": [
+        -0.053793309404713094,
+        -0.2033765894862355
+      ],
+      "predicted_decrease": 0.12557238507132565,
+      "actual_decrease": 0.0945863459499664,
+      "acceptance_ratio": 0.7532416135620977,
+      "absolute_reduction_error": 0.03098603912135925,
+      "lagrange_differences": [
+        -0.026601383449331717,
+        0.9616370813721785,
+        -0.11007649691702204,
+        0.2694494048551493,
+        -0.1374515294943819,
+        -0.9569570763665927
+      ],
+      "lambda_dec": 2.462172972454656,
+      "weighted_sample_residual_and_remainder": -0.031096650938896783,
+      "trial_taylor_remainder": -0.00011061181756028351,
+      "exact_identity_residual": -2.2749272084177097e-14,
+      "kkt_multiplier": 13.927377105914275,
+      "kkt_residual": 4.474419175479002e-15,
+      "shifted_hessian_minimum_eigenvalue": 11.077896640559729,
+      "relative_sample_radius": 1.6463752449151887
+    }
+  ],
+  "input_path": "D:\\Desktop\\2026Projects\\Publish\\matro_paper\\paper\\reviews\\20261110_original_and_independent\\fixed_state_input.json",
+  "input_sha256": "5782b0f74a98aad2b3008399200a774bd3bcf0a6a5264e6bce6c1db9b84bbe20",
+  "original_source_path": "D:/Desktop/2026Projects/Research/matro/notes/paper_figures_20261109/data/coverage_state.json",
+  "input_state": {
+    "center": [
+      1.9055768805330573,
+      3.6320586092832214
+    ],
+    "metric": [
+      [
+        4.205719167166988,
+        -0.9827766794254132
+      ],
+      [
+        -0.9827766794254132,
+        0.46742303123074636
+      ]
+    ],
+    "delta": 0.1,
+    "points": [
+      [
+        1.9055768805330573,
+        3.6320586092832214
+      ],
+      [
+        1.8435845402701854,
+        3.440038075671951
+      ],
+      [
+        1.9411106346958578,
+        3.792554856855073
+      ],
+      [
+        1.8916168896776444,
+        3.8416575262023227
+      ],
+      [
+        1.9523470494145647,
+        3.6631008497505158
+      ],
+      [
+        1.88475839462505,
+        3.6877195794418216
+      ]
+    ],
+    "values": [
+      0.8201392694664706,
+      0.8816601298318489,
+      0.9464236782955674,
+      7.73520573250265,
+      3.113917343424653,
+      2.61625892958347
+    ],
+    "nfev": 16
+  },
+  "script_sha256": "4b9cb65191f87ce5f39b320541a45e9d662c6f2e56902226cfdb1d77c58e8033",
+  "environment": {
+    "python": "3.13.6",
+    "numpy": "2.3.2",
+    "scipy": "1.17.1"
+  }
+}

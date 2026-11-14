@@ -1,0 +1,25 @@
+\begin{tabular}{lrrrr}
+\toprule
+\multicolumn{5}{c}{Success rate (\%)} \\
+\cmidrule(lr){1-5}
+Method & $10^{-3}$ & $10^{-5}$ & $10^{-7}$ & $10^{-9}$ \\
+\midrule
+MATRO & 97.41 & \textbf{96.64} & \textbf{95.24} & \textbf{91.60} \\
+NEWUOA (full) & 97.30 & 96.38 & 86.93 & 79.80 \\
+NEWUOA ($2n+1$) & \textbf{97.65} & 93.75 & 83.82 & 77.54 \\
+COBYQA & 97.39 & 94.38 & 88.27 & 79.49 \\
+Nelder--Mead & 96.23 & 94.14 & 88.07 & 81.32 \\
+CMA-ES & 91.84 & 89.19 & 83.82 & 79.45 \\
+\midrule
+\multicolumn{5}{c}{Mean normalized capped evaluations} \\
+\cmidrule(lr){1-5}
+Method & $10^{-3}$ & $10^{-5}$ & $10^{-7}$ & $10^{-9}$ \\
+\midrule
+MATRO & \textbf{26.0} & \textbf{38.0} & \textbf{56.5} & \textbf{76.5} \\
+NEWUOA (full) & 30.0 & 51.4 & 107.3 & 139.3 \\
+NEWUOA ($2n+1$) & 32.6 & 79.6 & 126.3 & 154.2 \\
+COBYQA & 34.5 & 72.4 & 117.4 & 150.5 \\
+Nelder--Mead & 47.8 & 85.8 & 129.7 & 161.6 \\
+CMA-ES & 86.6 & 142.6 & 194.9 & 235.3 \\
+\bottomrule
+\end{tabular}

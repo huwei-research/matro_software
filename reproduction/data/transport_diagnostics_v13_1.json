@@ -1,0 +1,74 @@
+{
+  "created_utc": "2026-11-12T18:30:03.429358+00:00",
+  "scope": "The 147 configurations in the paper, 20 MATRO starts per configuration; definitive attempt recorded by the original run analysis; all metric events over each full run.",
+  "sources": {
+    "archive": "D:\\Desktop\\2026Projects\\Research\\matro\\results\\received_selection_20261104\\archives\\01_experiments.zip",
+    "archive_size_bytes": 20735616428,
+    "run_analysis": "D:\\Desktop\\2026Projects\\Research\\matro\\results\\received_selection_20261104\\review\\MATRO_selection_20261030\\formal_dimension_order_20261101\\analysis\\overall_le25_20261104\\runs_metrics.csv.gz",
+    "run_analysis_sha256": "e832f9fa986ba76b69b9bdb305e24684b18f43c099c1c112558940f906e24d12",
+    "selected_ids": "D:\\Desktop\\2026Projects\\Research\\matro\\paper\\revisions\\v13_1\\data\\selected147_instances.csv.gz",
+    "selected_ids_sha256": "318f260a6995154e08e31409914c18cf23764c0e9f278c51b3099c4a439a1891",
+    "ordered_metric_members_sha256": "29b0ab7048acedcc7bf0b5d0f475299bbadff094d6acfded52e88e160ebc74ab"
+  },
+  "coverage": {
+    "instances": 147,
+    "expected_runs": 2940,
+    "loaded_runs": 2940,
+    "missing_runs": [],
+    "unreadable_runs": [],
+    "empty_event_runs": [],
+    "skipped_solver_runs": 0,
+    "unknown_statuses": {}
+  },
+  "event_count": 686330,
+  "status_counts": {
+    "committed": 542266,
+    "inaccurate_source_model": 49918,
+    "transport_rejected": 52564,
+    "no_nonidentity_target": 40811,
+    "unchanged_metric": 771
+  },
+  "nontrivial_proposal_count": 644748,
+  "committed_fraction_of_nontrivial_proposals": 0.8410510773201313,
+  "committed_fraction_of_recorded_events": 0.7900951437355208,
+  "transport_rejection_reasons": {
+    "transport design condition": 46440,
+    "transport inverse residual": 6124
+  },
+  "committed_residual_maxima": {
+    "design_condition": 9996635530.072268,
+    "inverse_residual_inf": 9.998495387186779e-08,
+    "old_interpolation_residual": 9.999408145944244e-08,
+    "new_interpolation_residual": 9.999408145944244e-08,
+    "prediction_change_relative": 7.966118581402635e-13,
+    "physical_displacement_error": 2.3283064365386963e-10
+  },
+  "event_keys": [
+    "best",
+    "delta",
+    "design_condition",
+    "error",
+    "inverse_residual_inf",
+    "new_interpolation_residual",
+    "nfev",
+    "old_interpolation_residual",
+    "physical_displacement_error",
+    "prediction_change_relative",
+    "reason",
+    "relative_log_after",
+    "relative_log_before",
+    "rho",
+    "scale",
+    "status"
+  ],
+  "timed_event_count": 0,
+  "timing_evidence": "Events contain no component timing; elapsed_seconds and cpu_seconds in run summaries measure the whole solver run. No affine-reconstruction overhead estimate is inferred.",
+  "aggregation": "Status counts are event totals, not equally weighted run or objective means. Nontrivial proposals exclude no_nonidentity_target and unchanged_metric. transport_rejected is the controller's stored exception category; error reasons are reported separately.",
+  "storage": {
+    "metric_gzip_bytes_read": 62564339,
+    "metric_json_bytes_decoded": 372412833,
+    "largest_decoded_member_bytes": 1834315,
+    "memory": "One event list at a time, plus zip central directory and 2940 compact rows; no objective or model-state histories loaded."
+  },
+  "compact_csv_sha256": "39af8e9142bbba6af4a22a80e61c591b93c9a1396e886e43a957443a00399d5f"
+}

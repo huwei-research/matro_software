@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "dimension_rows": {
+    "2": {
+      "mw": 5,
+      "cutest_s2mpj": 41
+    },
+    "3": {
+      "mw": 5,
+      "cutest_s2mpj": 17
+    },
+    "4": {
+      "mw": 5,
+      "cutest_s2mpj": 10
+    },
+    "5": {
+      "mw": 3,
+      "cutest_s2mpj": 1
+    },
+    "6": {
+      "mw": 4,
+      "cutest_s2mpj": 13
+    },
+    "7": {
+      "mw": 5,
+      "cutest_s2mpj": 2
+    },
+    "8": {
+      "mw": 6,
+      "cutest_s2mpj": 12
+    },
+    "9": {
+      "mw": 1,
+      "cutest_s2mpj": 1
+    },
+    "10": {
+      "mw": 4,
+      "cutest_s2mpj": 2
+    },
+    "11": {
+      "mw": 1,
+      "cutest_s2mpj": 0
+    },
+    "12": {
+      "mw": 2,
+      "cutest_s2mpj": 7
+    }
+  },
+  "totals": {
+    "mw": 41,
+    "cutest_s2mpj": 106,
+    "instances": 147
+  },
+  "old_table_retained_columns_correct": true,
+  "statistics_and_tables_unchanged": [
+    "objective_summary.csv",
+    "matro_full_objective_wtl.csv",
+    "reference_sensitivity.csv",
+    "table_objective_summary.tex",
+    "table_declared_summary.tex",
+    "table_objective_wtl.tex"
+  ],
+  "previous_words": 1767,
+  "current_words": 468,
+  "new_objective_evaluations": 0
+}

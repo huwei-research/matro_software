@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying MATRO paper."
+title: "MATRO: Metric-Aware Trust-Region Optimization with Fully Quadratic Models"
+authors:
+  - family-names: Hu
+    given-names: Wei
+  - family-names: Xie
+    given-names: Pengcheng
+  - family-names: Yuan
+    given-names: Ya-Xiang
+  - family-names: Zhang
+    given-names: Li
+year: 2026
+license: MIT
+
+

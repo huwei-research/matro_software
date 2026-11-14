@@ -1,0 +1,691 @@
+{
+  "project": "matro",
+  "source_root": "Research/matro",
+  "exported_at": "2026-11-14T22:14:47.249889+08:00",
+  "status": "verified_for_publication",
+  "repository": "https://github.com/huwei-research/matro_software",
+  "files": {
+    "CITATION.cff": {
+      "sha256": "5568e56e21276578a100bb042bb0875a200cfe1058f4eb6c0707ff166cc26d41",
+      "bytes": 402,
+      "source": "Research/matro/software/CITATION.cff"
+    },
+    "kernel_provenance.json": {
+      "sha256": "4efbb67792ee04d665d7baac91caa48b267fe07b10d91aafc977e03800f15767",
+      "bytes": 9186,
+      "source": "Research/matro/software/kernel_provenance.json"
+    },
+    "LICENSE": {
+      "sha256": "3f340b15d28ad552b394787ab5e045fb9bec2cc6d99b757f21b017d9f09e578a",
+      "bytes": 1107,
+      "source": "Research/matro/software/LICENSE"
+    },
+    "MANIFEST.in": {
+      "sha256": "f05273b9ca558f35544f1036e8fcba859f7ed8b1db6d5cb9b084fabcba7a7d7f",
+      "bytes": 265,
+      "source": "Research/matro/software/MANIFEST.in"
+    },
+    "pyproject.toml": {
+      "sha256": "45a9e0666c01a74ec1e9ffa2132e279895f7b4b4dfe955e629613e5ab5f93c91",
+      "bytes": 848,
+      "source": "Research/matro/software/pyproject.toml"
+    },
+    "README.md": {
+      "sha256": "bc962dd1027756d41caddcd149375e142dbabe73a5c8d97a5cb6c6074e83b36d",
+      "bytes": 1328,
+      "source": "Research/matro/software/README.md"
+    },
+    "SOLVER.md": {
+      "sha256": "abf12588e68ecdfa6d7d4602f6f457e910b73667d9e2b8d2cb0473be703dc624",
+      "bytes": 3137,
+      "source": "Research/matro/software/SOLVER.md"
+    },
+    "docs/algorithm.md": {
+      "sha256": "4bb2866629747e9c70b815737bc2e75eb17e2525ea82e69e5ae78561a3158d2d",
+      "bytes": 2279,
+      "source": "Research/matro/software/docs/algorithm.md"
+    },
+    "docs/experiments.md": {
+      "sha256": "65d3d90e906a3572b8add6634c3177a884638f041985c9b0f528ffc41bee3d49",
+      "bytes": 22141,
+      "source": "Research/matro/software/docs/experiments.md"
+    },
+    "docs/implementation.md": {
+      "sha256": "6e08d6a1d57979700e91eebc524f1f0e046ade6d8da2a3ac079e424fd518f476",
+      "bytes": 14765,
+      "source": "Research/matro/software/docs/implementation.md"
+    },
+    "docs/README.md": {
+      "sha256": "350fa8045e579e80df41fd63ec62504ae8b375b17fc2fd9d43cd8645057e4da4",
+      "bytes": 1156,
+      "source": "Research/matro/software/docs/README.md"
+    },
+    "examples/rosenbrock.py": {
+      "sha256": "7a7ca34a423919cab31e13d359ef00c9d1f51e0565b7c183c71bf745aca32986",
+      "bytes": 303,
+      "source": "Research/matro/software/examples/rosenbrock.py"
+    },
+    "reproduction/README.md": {
+      "sha256": "a32c6974e65fcb9f38e5e96ca32012bedecb38b8624e23f0f474ab50367285ec",
+      "bytes": 2299,
+      "source": "Research/matro/software/reproduction/README.md"
+    },
+    "reproduction/source_manifest.json": {
+      "sha256": "bc12b125a473979583bcc5571cc0625b1014fdb4fb19b1d93f6a6476365c7735",
+      "bytes": 15608,
+      "source": "Research/matro/software/reproduction/source_manifest.json"
+    },
+    "tests/test_real_input.py": {
+      "sha256": "057972b750e4b09962f769e7306a96a0e48ebc4407d1351cc0a31661b235eded",
+      "bytes": 299,
+      "source": "Research/matro/software/tests/test_real_input.py"
+    },
+    "tests/test_solver_api.py": {
+      "sha256": "5769ca2975d17faaa0c86fb5f0ef4d9a22d926944c3c0c342dd128326b29bc92",
+      "bytes": 2531,
+      "source": "Research/matro/software/tests/test_solver_api.py"
+    },
+    "src/matro/_api.py": {
+      "sha256": "5e4c5a3d16c58c854eb9140ea1fcfd96290ad1df933da17f66f4476ff916f17e",
+      "bytes": 4423,
+      "source": "Research/matro/software/src/matro/_api.py"
+    },
+    "src/matro/_controller.py": {
+      "sha256": "a39db89c62b35ffafb5365165f9284b46c17e44194d91b06340e1d74dd1936d3",
+      "bytes": 8029,
+      "source": "Research/matro/software/src/matro/_controller.py"
+    },
+    "src/matro/_metric.py": {
+      "sha256": "847d5d9c4f605103a60e47f4412bbd5ae17a1bb19efbaec3f9258c50a2bc8f76",
+      "bytes": 6452,
+      "source": "Research/matro/software/src/matro/_metric.py"
+    },
+    "src/matro/_metric_utils.py": {
+      "sha256": "01739af9d654aeff99db9d65104aa49af9cf447ae0840c9b0942f625fcce6864",
+      "bytes": 6125,
+      "source": "Research/matro/software/src/matro/_metric_utils.py"
+    },
+    "src/matro/_solver.py": {
+      "sha256": "9625e7eb3236cb3f5cca36e832907a1ce2eac45b2f07cb6da086017dfa4a69bc",
+      "bytes": 1182,
+      "source": "Research/matro/software/src/matro/_solver.py"
+    },
+    "src/matro/_transport.py": {
+      "sha256": "1e658e15afbdb9a6efbae269b7585eaa668bcc92b7c67a424a6824eab3930bf6",
+      "bytes": 6992,
+      "source": "Research/matro/software/src/matro/_transport.py"
+    },
+    "src/matro/__init__.py": {
+      "sha256": "f4f72bf414dae8c1d2ffd49d577d41a6bec80735f2622fd985897607206715ec",
+      "bytes": 169,
+      "source": "Research/matro/software/src/matro/__init__.py"
+    },
+    "src/matro/_newuoa/generate.py": {
+      "sha256": "c8231c77d260871ac302ae044fb360ec351024d991ccd7109c044a44ec20a3f0",
+      "bytes": 14561,
+      "source": "Research/matro/software/src/matro/_newuoa/generate.py"
+    },
+    "src/matro/_newuoa/generated.py": {
+      "sha256": "9bcae8288e2edc0b26570374ecfe6139b8e80a31011dbef7d360d23fea62d313",
+      "bytes": 304778,
+      "source": "Research/matro/software/src/matro/_newuoa/generated.py"
+    },
+    "src/matro/_newuoa/LICENSE.txt": {
+      "sha256": "5d3b2a66bef92d1b567fa7157ed50803fea659abb7ab6081fe8accab95695736",
+      "bytes": 1554,
+      "source": "Research/matro/software/src/matro/_newuoa/LICENSE.txt"
+    },
+    "src/matro/_newuoa/provenance.json": {
+      "sha256": "9cd77174a8002108fe3a71fb317bcb4635ed06b3ede72c4544d7fb3656968074",
+      "bytes": 1013,
+      "source": "Research/matro/software/src/matro/_newuoa/provenance.json"
+    },
+    "src/matro/_newuoa/README.md": {
+      "sha256": "f4e37c12014a7c52aea3a3f96c655a49089eb6983780b0a2c1e1103ae0e9a2c8",
+      "bytes": 4694,
+      "source": "Research/matro/software/src/matro/_newuoa/README.md"
+    },
+    "src/matro/_newuoa/runtime.py": {
+      "sha256": "932d6966c260296fbbe35fd0e78e1dca2cb0c1035da99aafedf3d973c84f8764",
+      "bytes": 2015,
+      "source": "Research/matro/software/src/matro/_newuoa/runtime.py"
+    },
+    "src/matro/_newuoa/source_map.json": {
+      "sha256": "74ecee854d73852712ff01219a65217cf44f83c706185b0c8fc8681d5aeca85c",
+      "bytes": 266531,
+      "source": "Research/matro/software/src/matro/_newuoa/source_map.json"
+    },
+    "src/matro/_newuoa/x87_math.py": {
+      "sha256": "b5c991a5bcc9f02cd77c4c10be9b31a4160092c468780065541cda70f55c42d8",
+      "bytes": 4575,
+      "source": "Research/matro/software/src/matro/_newuoa/x87_math.py"
+    },
+    "src/matro/_newuoa/__init__.py": {
+      "sha256": "8bb0fd36cfe864b01d9c92b829b190963c68febb05261c6bd8de44ea5c93f07a",
+      "bytes": 4593,
+      "source": "Research/matro/software/src/matro/_newuoa/__init__.py"
+    },
+    "src/matro/_newuoa/reference_source/bigden.f": {
+      "sha256": "b942ccefd9b223a0f0ee8303c3c45a08c767f028200eb819c932ab38cbf3f259",
+      "bytes": 12042,
+      "source": "Research/matro/software/src/matro/_newuoa/reference_source/bigden.f"
+    },
+    "src/matro/_newuoa/reference_source/biglag.f": {
+      "sha256": "3f9bd297b326bc508c92d69b6d5ba3ff7a6dbc878109ea73e404eee85cdfa2a4",
+      "bytes": 5784,
+      "source": "Research/matro/software/src/matro/_newuoa/reference_source/biglag.f"
+    },
+    "src/matro/_newuoa/reference_source/newuoa.f": {
+      "sha256": "fb272caa5ed0cc68a0ce236c0b2d89c183d142d5cebec7655a5f11e8542076c3",
+      "bytes": 5689,
+      "source": "Research/matro/software/src/matro/_newuoa/reference_source/newuoa.f"
+    },
+    "src/matro/_newuoa/reference_source/newuob.f": {
+      "sha256": "16f5bca0a7bdc9a114129a437af7c0d6862a2e6da351809e00bc600c25c2e2b5",
+      "bytes": 26156,
+      "source": "Research/matro/software/src/matro/_newuoa/reference_source/newuob.f"
+    },
+    "src/matro/_newuoa/reference_source/trsapp.f": {
+      "sha256": "7a23aa4353e1a3ff38f147c544789b29386c3c0974128d0d6aea5f8e2d0828d1",
+      "bytes": 6357,
+      "source": "Research/matro/software/src/matro/_newuoa/reference_source/trsapp.f"
+    },
+    "src/matro/_newuoa/reference_source/update.f": {
+      "sha256": "f6ddf5488829994c0d2a6c4c804d87f120afcee3cd112fc79306702149006838",
+      "bytes": 3898,
+      "source": "Research/matro/software/src/matro/_newuoa/reference_source/update.f"
+    },
+    "reproduction/data/benchmark_environment.json": {
+      "sha256": "23b700615586ec6ddcabded5e78ab20b89e0bac7951c6ae07537f9ff4735e700",
+      "bytes": 908,
+      "source": "Research/matro/software/reproduction/data/benchmark_environment.json"
+    },
+    "reproduction/data/conditioning_summary.csv": {
+      "sha256": "d439d6cb8698a7358347d376164b0cc5c7b144dcab66bbe2d0700f17e6ee2b49",
+      "bytes": 11906,
+      "source": "Research/matro/software/reproduction/data/conditioning_summary.csv"
+    },
+    "reproduction/data/coverage_metrics.json": {
+      "sha256": "f6718e805e6d3a134319246e703b40bf80ee866938197d16550bb8c9e5eb3d04",
+      "bytes": 1231,
+      "source": "Research/matro/software/reproduction/data/coverage_metrics.json"
+    },
+    "reproduction/data/fixed_state_input.json": {
+      "sha256": "5782b0f74a98aad2b3008399200a774bd3bcf0a6a5264e6bce6c1db9b84bbe20",
+      "bytes": 852,
+      "source": "Research/matro/software/reproduction/data/fixed_state_input.json"
+    },
+    "reproduction/data/fixed_state_reconstruction.json": {
+      "sha256": "3c5960ee713a7442538348f79c9b20ece65ecd261c7c5d5a1a7525ce4880a85c",
+      "bytes": 5196,
+      "source": "Research/matro/software/reproduction/data/fixed_state_reconstruction.json"
+    },
+    "reproduction/data/fixed_state_reconstruction.py": {
+      "sha256": "c7927394509065227b89547b110733bb04b342df010917d38778084fdb113286",
+      "bytes": 6432,
+      "source": "Research/matro/software/reproduction/data/fixed_state_reconstruction.py"
+    },
+    "reproduction/data/initialization.csv.gz": {
+      "sha256": "619ae57d6b1b225de172b0780d2b2ba856ca2452607dd8f39fc45d918a5e40ca",
+      "bytes": 8392,
+      "source": "Research/matro/software/reproduction/data/initialization.csv.gz"
+    },
+    "reproduction/data/isolated_verification.json": {
+      "sha256": "096c45c13fb5b637e7a90807172cbcdd79dfc1b96ebd72ec4106d370690e994b",
+      "bytes": 967,
+      "source": "Research/matro/software/reproduction/data/isolated_verification.json"
+    },
+    "reproduction/data/mechanism_inputs.json": {
+      "sha256": "1c33efd1ba0a15b315736ff27b0636139f1995694d4da0ad119f52fd71c4c003",
+      "bytes": 62316,
+      "source": "Research/matro/software/reproduction/data/mechanism_inputs.json"
+    },
+    "reproduction/data/nine_example_metrics.csv": {
+      "sha256": "5fc652ad099d4b5a92a0933544198957fb1608e254010f927f146a06ff5862f9",
+      "bytes": 768,
+      "source": "Research/matro/software/reproduction/data/nine_example_metrics.csv"
+    },
+    "reproduction/data/README.md": {
+      "sha256": "2b8bf9dcb9f48a4899d78c6eb54fc1c7bc0180cf20a75952df531082d73b4653",
+      "bytes": 7818,
+      "source": "Research/matro/software/reproduction/data/README.md"
+    },
+    "reproduction/data/references.csv.gz": {
+      "sha256": "238ebd9e24772051c2e1e39b7dda76c17176f5c3a724f0ba4e0a0cd864976036",
+      "bytes": 3308,
+      "source": "Research/matro/software/reproduction/data/references.csv.gz"
+    },
+    "reproduction/data/requirements_figures.txt": {
+      "sha256": "07180c104edc7ca2bef3284cf058cf6aa4f0410783268243626c518c039fbdc7",
+      "bytes": 64,
+      "source": "Research/matro/software/reproduction/data/requirements_figures.txt"
+    },
+    "reproduction/data/runs.csv.gz": {
+      "sha256": "0087858e13b02776bac0536ded38b114152cf9e58ee6bdf5690483124bc65c59",
+      "bytes": 597859,
+      "source": "Research/matro/software/reproduction/data/runs.csv.gz"
+    },
+    "reproduction/data/selected147_instances.csv.gz": {
+      "sha256": "318f260a6995154e08e31409914c18cf23764c0e9f278c51b3099c4a439a1891",
+      "bytes": 18075,
+      "source": "Research/matro/software/reproduction/data/selected147_instances.csv.gz"
+    },
+    "reproduction/data/selection_rules.json": {
+      "sha256": "72228e30fbda22d9d1b57f1d2f27090301f1ca36a4b349f89e9a85c503b67b62",
+      "bytes": 2003,
+      "source": "Research/matro/software/reproduction/data/selection_rules.json"
+    },
+    "reproduction/data/shape_summary.csv": {
+      "sha256": "c7a50e42a36ec6e1a7df0f3625ff40d8237696b1272891fd4ce12bf668953cbe",
+      "bytes": 844,
+      "source": "Research/matro/software/reproduction/data/shape_summary.csv"
+    },
+    "reproduction/data/source_manifest.json": {
+      "sha256": "291b1890111e52b044bfc10eecd1b183298e3b91bf6e3e1e2c84948879e72263",
+      "bytes": 13132,
+      "source": "Research/matro/software/reproduction/data/source_manifest.json"
+    },
+    "reproduction/data/starts.csv.gz": {
+      "sha256": "bbb89a08e16f10bd701d61fe42f8e9b4fec514ef2153763811ab5d60c79a3cb4",
+      "bytes": 198774,
+      "source": "Research/matro/software/reproduction/data/starts.csv.gz"
+    },
+    "reproduction/data/trajectory_cases.json": {
+      "sha256": "fa9089a41e1a50a3e045dd8d2e629f2f2a7948dc1342cbe43b6add4e685eff14",
+      "bytes": 2767,
+      "source": "Research/matro/software/reproduction/data/trajectory_cases.json"
+    },
+    "reproduction/data/trajectory_neighbors.csv": {
+      "sha256": "090ab98662072a3e702b0ee0fd5b1f9fae5131a71db6b6ee39b266535d241cd3",
+      "bytes": 1089,
+      "source": "Research/matro/software/reproduction/data/trajectory_neighbors.csv"
+    },
+    "reproduction/data/transport_diagnostics_v13_1.csv": {
+      "sha256": "39af8e9142bbba6af4a22a80e61c591b93c9a1396e886e43a957443a00399d5f",
+      "bytes": 559228,
+      "source": "Research/matro/software/reproduction/data/transport_diagnostics_v13_1.csv"
+    },
+    "reproduction/data/transport_diagnostics_v13_1.json": {
+      "sha256": "093840c78d5047c989dff1e6d7dc68e62c3d725c3b207fff46b5e28394d11824",
+      "bytes": 3480,
+      "source": "Research/matro/software/reproduction/data/transport_diagnostics_v13_1.json"
+    },
+    "reproduction/data/verification.json": {
+      "sha256": "3e832fac96288a035a74ba3763a6b340a005c1c7adbd221edb746139f86d5397",
+      "bytes": 836,
+      "source": "Research/matro/software/reproduction/data/verification.json"
+    },
+    "reproduction/data/verify_data.py": {
+      "sha256": "d9d37ed7ed45838463f7acf9f26128efda614852cd5d77c61d9cc07d514d2422",
+      "bytes": 4664,
+      "source": "Research/matro/software/reproduction/data/verify_data.py"
+    },
+    "reproduction/documentation/SOLVER.md": {
+      "sha256": "c2953cae2a648b1c04c6335ae322ec6108d8b4d40163f0043d4c3885aed1b04d",
+      "bytes": 3467,
+      "source": "Research/matro/software/reproduction/documentation/SOLVER.md"
+    },
+    "reproduction/figures/check_numeric_preservation.py": {
+      "sha256": "b71eee727c44f2f93400186354a760dbc03d48d06ef94b7cfac8d20df22d9496",
+      "bytes": 6811,
+      "source": "Research/matro/software/reproduction/figures/check_numeric_preservation.py"
+    },
+    "reproduction/figures/isolated_reproduction.json": {
+      "sha256": "de81f0398149b6317483288e4fa63ff8fbf99ff131720e70e5f1b84d935664ee",
+      "bytes": 10225,
+      "source": "Research/matro/software/reproduction/figures/isolated_reproduction.json"
+    },
+    "reproduction/figures/plot_environment.json": {
+      "sha256": "8e91fd2fd37fb443645ceafef2129057a8e1fa25e91a80c2fcd9098c9be55f67",
+      "bytes": 140,
+      "source": "Research/matro/software/reproduction/figures/plot_environment.json"
+    },
+    "reproduction/figures/redraw_checks.json": {
+      "sha256": "591165c3633fd8df5dd6141a5c96a8d14a6f063b2d6c945470d55279cfd14cb4",
+      "bytes": 6134,
+      "source": "Research/matro/software/reproduction/figures/redraw_checks.json"
+    },
+    "reproduction/figures/redraw_figures.py": {
+      "sha256": "6989a5388f79693f5858594b9e246d7e69aac2561e5223372c013f3d0742c039",
+      "bytes": 23368,
+      "source": "Research/matro/software/reproduction/figures/redraw_figures.py"
+    },
+    "reproduction/figures/validate_exports.py": {
+      "sha256": "d734f649b8588f73b0432de2ba1e9b11ce6be588b46914a348d0e715ac781b1d",
+      "bytes": 4485,
+      "source": "Research/matro/software/reproduction/figures/validate_exports.py"
+    },
+    "reproduction/figures/visual_checks.json": {
+      "sha256": "75c229b059448ea0f693a8554057f6c6e89c3cab573e9ee748ef9cf8d944d79e",
+      "bytes": 6242,
+      "source": "Research/matro/software/reproduction/figures/visual_checks.json"
+    },
+    "reproduction/statistics/analysis.md": {
+      "sha256": "c6f1012af342d73fbcb362b3a15cd30f6dc72801a3faa1b8805d1f717a57ea5d",
+      "bytes": 5151,
+      "source": "Research/matro/software/reproduction/statistics/analysis.md"
+    },
+    "reproduction/statistics/analyze_statistics.py": {
+      "sha256": "3539ee72031c99a618ed5071ee917a66ba20d9638b03934991afc8e49cde5944",
+      "bytes": 29000,
+      "source": "Research/matro/software/reproduction/statistics/analyze_statistics.py"
+    },
+    "reproduction/statistics/candidate_distribution.csv": {
+      "sha256": "5fe7ab80bb18ef085612958adfa7716746d5c41cdebc1cbc1fb0f9f9b2da2900",
+      "bytes": 220,
+      "source": "Research/matro/software/reproduction/statistics/candidate_distribution.csv"
+    },
+    "reproduction/statistics/candidate_inventory.csv.gz": {
+      "sha256": "ab02be0dda746268dc39ad3432e042cd7a9d5943e72c70ea73eaefd7b19288a2",
+      "bytes": 7160,
+      "source": "Research/matro/software/reproduction/statistics/candidate_inventory.csv.gz"
+    },
+    "reproduction/statistics/candidate_pool_summary.csv": {
+      "sha256": "6fda56c1438df69747ee1a8fe81bc5d652862b14be108603402b83f9fa61e106",
+      "bytes": 1635,
+      "source": "Research/matro/software/reproduction/statistics/candidate_pool_summary.csv"
+    },
+    "reproduction/statistics/canonical_run_values.csv.gz": {
+      "sha256": "438fa37e24790108eb6f80cd39b4a616ceaabb502820586313d84d8d4aa31ffa",
+      "bytes": 158456,
+      "source": "Research/matro/software/reproduction/statistics/canonical_run_values.csv.gz"
+    },
+    "reproduction/statistics/configuration_mapping.csv.gz": {
+      "sha256": "39d3914f8968cb7bb53749365a12ac5d5692983625bd88880ce67d992ad6b3dc",
+      "bytes": 4933,
+      "source": "Research/matro/software/reproduction/statistics/configuration_mapping.csv.gz"
+    },
+    "reproduction/statistics/exclusion_combinations.csv": {
+      "sha256": "b0cc0855cd976489487e9dae804718e6954878a148f42a7123d783983160cb4f",
+      "bytes": 587,
+      "source": "Research/matro/software/reproduction/statistics/exclusion_combinations.csv"
+    },
+    "reproduction/statistics/exclusion_first_reason.csv": {
+      "sha256": "4ba33ac7b17063fa396a24a3bfc5b4d595f9eb32f835697ae02b0f099dfb8227",
+      "bytes": 180,
+      "source": "Research/matro/software/reproduction/statistics/exclusion_first_reason.csv"
+    },
+    "reproduction/statistics/instance_distribution.csv": {
+      "sha256": "52d69489c975c35fb9eadd127ecf6d4cd9e2d71c680f4002f7d4e0ecd85a566a",
+      "bytes": 92,
+      "source": "Research/matro/software/reproduction/statistics/instance_distribution.csv"
+    },
+    "reproduction/statistics/matro_full_objective_wtl.csv": {
+      "sha256": "78e6746c3aee557b6d15f4b30c4ab724b9700210d873fe2ae8265dc9cd6a97f6",
+      "bytes": 382,
+      "source": "Research/matro/software/reproduction/statistics/matro_full_objective_wtl.csv"
+    },
+    "reproduction/statistics/objective_level_results.csv.gz": {
+      "sha256": "b41b579b2f318b82eefc7676558b33d99270fc7b7ab85882c38b08ee54d186f6",
+      "bytes": 87445,
+      "source": "Research/matro/software/reproduction/statistics/objective_level_results.csv.gz"
+    },
+    "reproduction/statistics/objective_summary.csv": {
+      "sha256": "2b85a65e271ca68203128e70c5b6ab3b055337cbe672de6aba49e0b476de66b8",
+      "bytes": 6601,
+      "source": "Research/matro/software/reproduction/statistics/objective_summary.csv"
+    },
+    "reproduction/statistics/provenance_source.json": {
+      "sha256": "e717d5f49e176722085bd3ba6e1f45e892a1f751c07c60e16f28a0728bc71337",
+      "bytes": 11297,
+      "source": "Research/matro/software/reproduction/statistics/provenance_source.json"
+    },
+    "reproduction/statistics/README.md": {
+      "sha256": "282bfc1fb2fc8d14050fa4ed9eea4e31fbebb10e728febb6a546c66cc9f0bfcf",
+      "bytes": 2331,
+      "source": "Research/matro/software/reproduction/statistics/README.md"
+    },
+    "reproduction/statistics/reference_changes_by_identity.csv.gz": {
+      "sha256": "c76eabb52910ed4644a8c69b29f9f415b6f73305b1e6da904bfdf37a72bb5fff",
+      "bytes": 1005,
+      "source": "Research/matro/software/reproduction/statistics/reference_changes_by_identity.csv.gz"
+    },
+    "reproduction/statistics/reference_hit_checks.csv.gz": {
+      "sha256": "3b6c21d199bf6bfcf436067549a545adb72ae93aee31fc771779065ff36274ca",
+      "bytes": 147781,
+      "source": "Research/matro/software/reproduction/statistics/reference_hit_checks.csv.gz"
+    },
+    "reproduction/statistics/reference_query_members.csv.gz": {
+      "sha256": "800c4f2aa1c87facb36742e0e44a3992530d792c470b6e33e33a462fd2418c45",
+      "bytes": 285192,
+      "source": "Research/matro/software/reproduction/statistics/reference_query_members.csv.gz"
+    },
+    "reproduction/statistics/reference_recovery_receipt.json": {
+      "sha256": "3901195958ca1bf302089755286a7b639d02c1b988830f2cd87d7bc806e74584",
+      "bytes": 793,
+      "source": "Research/matro/software/reproduction/statistics/reference_recovery_receipt.json"
+    },
+    "reproduction/statistics/reference_sensitivity.csv": {
+      "sha256": "0f8c21fc8deb6f3d6eb35e434b4fd37be03a9b4d59f9925e7107ad4a06396994",
+      "bytes": 3697,
+      "source": "Research/matro/software/reproduction/statistics/reference_sensitivity.csv"
+    },
+    "reproduction/statistics/revision_checks.json": {
+      "sha256": "ea0af003864616c25c7d4fff12c2a3f121823035c5b84d4783c65cca67516faf",
+      "bytes": 1196,
+      "source": "Research/matro/software/reproduction/statistics/revision_checks.json"
+    },
+    "reproduction/statistics/statistics_receipt.json": {
+      "sha256": "780967696639a24fb108ccc210a47ddf9b067865773e84db2e1fefb71e8435d2",
+      "bytes": 1842,
+      "source": "Research/matro/software/reproduction/statistics/statistics_receipt.json"
+    },
+    "reproduction/statistics/table_declared_summary.tex": {
+      "sha256": "f3d91bf770d837cc406216f5e470abf48fab512ad5f2a33891b889c4351f4d31",
+      "bytes": 968,
+      "source": "Research/matro/software/reproduction/statistics/table_declared_summary.tex"
+    },
+    "reproduction/statistics/table_instance_distribution.tex": {
+      "sha256": "1ed160acaae7a32e80f66857e0b593d7cc56ce4e2d08e8f643dd07a5d8446556",
+      "bytes": 311,
+      "source": "Research/matro/software/reproduction/statistics/table_instance_distribution.tex"
+    },
+    "reproduction/statistics/table_objective_summary.tex": {
+      "sha256": "ae1930dc89b937ecf4462a9cf4711f16ea1772337ef7369d088a1d96f4f287df",
+      "bytes": 968,
+      "source": "Research/matro/software/reproduction/statistics/table_objective_summary.tex"
+    },
+    "reproduction/statistics/table_objective_wtl.tex": {
+      "sha256": "f1a1c6fc1b687ab9289c0c16cd577465ad37064e85e75fd43ec6df8c4458a62f",
+      "bytes": 389,
+      "source": "Research/matro/software/reproduction/statistics/table_objective_wtl.tex"
+    },
+    "reproduction/statistics/table_paired_summary.tex": {
+      "sha256": "09e54d29676c1e0e79d7cbc34a8b2ba0fb5233e0aa41bd9220c1bf4101d8177e",
+      "bytes": 968,
+      "source": "Research/matro/software/reproduction/statistics/table_paired_summary.tex"
+    },
+    "reproduction/figures/fonts/GUST-FONT-LICENSE.TXT": {
+      "sha256": "49ea6cb9257bbee0a3979c48a774cd221550ac1c20c95549efe45fc99cc18050",
+      "bytes": 1377,
+      "source": "Research/matro/software/reproduction/figures/fonts/GUST-FONT-LICENSE.TXT"
+    },
+    "reproduction/figures/fonts/lmroman10-bold.otf": {
+      "sha256": "102fe06c430a8b681b2bf6876b7cd967ae4d47b4b6b41d915eb7913b726d9fb1",
+      "bytes": 111240,
+      "source": "Research/matro/software/reproduction/figures/fonts/lmroman10-bold.otf"
+    },
+    "reproduction/figures/fonts/lmroman10-italic.otf": {
+      "sha256": "c1fce25075567bb8dbf2151658c3b442690041db17a2d49fc9e55905ea5b7169",
+      "bytes": 118828,
+      "source": "Research/matro/software/reproduction/figures/fonts/lmroman10-italic.otf"
+    },
+    "reproduction/figures/fonts/lmroman10-regular.otf": {
+      "sha256": "1aa18cfefa58132c52ce5de70db1fd1154201c19cd2b2cdaffba4906a33e6852",
+      "bytes": 111536,
+      "source": "Research/matro/software/reproduction/figures/fonts/lmroman10-regular.otf"
+    },
+    "reproduction/figures/fonts/README-Latin-Modern.TXT": {
+      "sha256": "7cac4a4a78985ccb1ed429bb2eddf32eeb2e413c94493c7b268385bb7b525250",
+      "bytes": 33548,
+      "source": "Research/matro/software/reproduction/figures/fonts/README-Latin-Modern.TXT"
+    },
+    "reproduction/figures/style/LICENSE.md": {
+      "sha256": "7612ea5c51e3de17c4d78af113ca105bfe2e2b310f7149fec0c4f75a7cf11ac5",
+      "bytes": 1610,
+      "source": "Research/matro/software/reproduction/figures/style/LICENSE.md"
+    },
+    "reproduction/figures/style/LICENSE_upstream.txt": {
+      "sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1",
+      "bytes": 1068,
+      "source": "Research/matro/software/reproduction/figures/style/LICENSE_upstream.txt"
+    },
+    "reproduction/figures/style/publication.mplstyle": {
+      "sha256": "eba3001f346649a9e41d9ac1d56101abbae10aefecdad3be9530f4c9cd9269b3",
+      "bytes": 1822,
+      "source": "Research/matro/software/reproduction/figures/style/publication.mplstyle"
+    },
+    "reproduction/figures/style/README.md": {
+      "sha256": "188f5aa4df1a66893e8539efa0ec12445440647ba2fd4a9097424b5349effa91",
+      "bytes": 1276,
+      "source": "Research/matro/software/reproduction/figures/style/README.md"
+    },
+    "reproduction/documentation/docs/algorithm.md": {
+      "sha256": "fae78be3fab8aaa7ff08d95421db714e282629a0894c59827c65ad55778f17fd",
+      "bytes": 2316,
+      "source": "Research/matro/software/reproduction/documentation/docs/algorithm.md"
+    },
+    "reproduction/documentation/docs/experiments.md": {
+      "sha256": "18ec803c00562ac4b2263df12e246f4b4f8078e2b3c6cae044790481675150e0",
+      "bytes": 22095,
+      "source": "Research/matro/software/reproduction/documentation/docs/experiments.md"
+    },
+    "reproduction/documentation/docs/implementation.md": {
+      "sha256": "1526931a0cdd66b2fa6953a708055f2aee845b1f6bb5df79ef153dfd0ad24f9a",
+      "bytes": 14569,
+      "source": "Research/matro/software/reproduction/documentation/docs/implementation.md"
+    },
+    "reproduction/documentation/docs/manuscript_numerical_notes.md": {
+      "sha256": "a9c69b059cb33744cf72335c4bdad6e936cc9db731fdb08a84b3f6596e1d4c0e",
+      "bytes": 1351,
+      "source": "Research/matro/software/reproduction/documentation/docs/manuscript_numerical_notes.md"
+    },
+    "reproduction/documentation/docs/README.md": {
+      "sha256": "5ee19c91647217a6265d9fede96dbb5cb50c087e8fdd09387ab79006df602939",
+      "bytes": 1439,
+      "source": "Research/matro/software/reproduction/documentation/docs/README.md"
+    },
+    "reproduction/data/figure_inputs/conditioning_summary.csv": {
+      "sha256": "d439d6cb8698a7358347d376164b0cc5c7b144dcab66bbe2d0700f17e6ee2b49",
+      "bytes": 11906,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/conditioning_summary.csv"
+    },
+    "reproduction/data/figure_inputs/coverage_field.npz": {
+      "sha256": "7f0425dd9154b17436d121c5988c7f4450d8f6f570263079587cd48086612d87",
+      "bytes": 1182573,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/coverage_field.npz"
+    },
+    "reproduction/data/figure_inputs/manifest.json": {
+      "sha256": "ecaca3596a6a81754b12019d828246b98d8d185b64709e1ba67913e39498663e",
+      "bytes": 6967,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/manifest.json"
+    },
+    "reproduction/data/figure_inputs/nine_descent.csv.gz": {
+      "sha256": "71b18c7132c97464853c24ce653daf3ae0c2dcb77416a4949c35848dfa1c3c4c",
+      "bytes": 314315,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/nine_descent.csv.gz"
+    },
+    "reproduction/data/figure_inputs/nine_instances.csv.gz": {
+      "sha256": "70e585fd60c6dbf1d7e9872423fceac622ed34793af856d2383f918e8a6ba153",
+      "bytes": 18070,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/nine_instances.csv.gz"
+    },
+    "reproduction/data/figure_inputs/profiles_1e-3.csv.gz": {
+      "sha256": "b3db2589e20aeb458fc82eeac4526f5c3a22ceb991db14a5a93f63673f741ef4",
+      "bytes": 159072,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/profiles_1e-3.csv.gz"
+    },
+    "reproduction/data/figure_inputs/profiles_1e-5.csv.gz": {
+      "sha256": "f68cf64b689ca0bc6afd7ca9d9a525822806ab590d10ee7c1cc1b1731a008a22",
+      "bytes": 192709,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/profiles_1e-5.csv.gz"
+    },
+    "reproduction/data/figure_inputs/profiles_1e-7.csv.gz": {
+      "sha256": "93c807e4d5e2ea824f54da9a11b13753f5e9eb002701757eda1ece45dbaca7ff",
+      "bytes": 198047,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/profiles_1e-7.csv.gz"
+    },
+    "reproduction/data/figure_inputs/profiles_1e-9.csv.gz": {
+      "sha256": "920450f0ab341bfcfcf334bcfc90ba29ef935784732846c485b6276291932d0a",
+      "bytes": 189502,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/profiles_1e-9.csv.gz"
+    },
+    "reproduction/data/figure_inputs/shape/formal_run_map.json": {
+      "sha256": "52493a4090d23771c76a6dacb0d9acbcb89921fda1e9148ccd72d298a2fde211",
+      "bytes": 28443,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/shape/formal_run_map.json"
+    },
+    "reproduction/data/figure_inputs/shape/runs.csv.gz": {
+      "sha256": "0d357281389f8021e26b9297e28e1f5758db6f8e738d7835d84ace025ce7f182",
+      "bytes": 364864,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/shape/runs.csv.gz"
+    },
+    "reproduction/data/figure_inputs/shape/shape_descent.csv.gz": {
+      "sha256": "d06f8a4c1d8a242e84d6508338419bca9331bbfb38285cb0946d31e4e51ddec9",
+      "bytes": 208548,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/shape/shape_descent.csv.gz"
+    },
+    "reproduction/data/figure_inputs/trajectories/index.json": {
+      "sha256": "289c6993a70ebc51c3627d8da017a030fa4146d921d1f5aad1520d5af4d773ce",
+      "bytes": 116,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/index.json"
+    },
+    "reproduction/data/figure_inputs/trajectories/preview_00_rosenbrock.json.gz": {
+      "sha256": "806e6b23a060a75bffaf3ed76d101530c13ae60a9099105cb65becee76dceb0e",
+      "bytes": 41143,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/preview_00_rosenbrock.json.gz"
+    },
+    "reproduction/data/figure_inputs/trajectories/preview_00_rosenbrock_field.npz": {
+      "sha256": "5035a36a7aab4e97dd715b039593d85a0e1d5877e57ee83e2a499e27ea3bec3a",
+      "bytes": 597952,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/preview_00_rosenbrock_field.npz"
+    },
+    "reproduction/data/figure_inputs/trajectories/preview_06_different_powers.json.gz": {
+      "sha256": "c6b07e805e978d5f480648901b27307e2aa932544aa035a82aee251f05d50510",
+      "bytes": 14525,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/preview_06_different_powers.json.gz"
+    },
+    "reproduction/data/figure_inputs/trajectories/preview_06_different_powers_field.npz": {
+      "sha256": "1b487546ef4f86a027d2eb90590c9a1e360e60f34807db0cdd130c20423af906",
+      "bytes": 594072,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/preview_06_different_powers_field.npz"
+    },
+    "reproduction/data/figure_inputs/trajectories/preview_08_levy.json.gz": {
+      "sha256": "0508688283496e41774088e007f872077f8491176fab35758ed2a62152eb4775",
+      "bytes": 17010,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/preview_08_levy.json.gz"
+    },
+    "reproduction/data/figure_inputs/trajectories/preview_08_levy_field.npz": {
+      "sha256": "a4c85676fd3d25ab9b347c6b12641fc653c8908aab43f806c9bc2d59838d2aed",
+      "bytes": 598301,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/preview_08_levy_field.npz"
+    },
+    "reproduction/data/figure_inputs/trajectories/visual_02_cubic_valley.json.gz": {
+      "sha256": "f1db6de373bf41b5dd6f44727e3b68f6d5808dad2bc8f4b81973819e506d29f5",
+      "bytes": 50036,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/visual_02_cubic_valley.json.gz"
+    },
+    "reproduction/data/figure_inputs/trajectories/visual_02_cubic_valley_field.npz": {
+      "sha256": "50d4ba6a59fac8c6b1f83120a45b42118d0d0fa6bc5dc920c25a961e89c9c1ae",
+      "bytes": 595613,
+      "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/visual_02_cubic_valley_field.npz"
+    }
+  },
+  "validation": {
+    "tests_passed": 18,
+    "installed_wheel": true,
+    "sdist_rebuilt": true,
+    "compact_reading": {
+      "measurement": "tracemalloc per-input reading; CSV streamed; NPZ bytes streamed, not array analysis",
+      "input_bytes": 6877715,
+      "largest_input_bytes": 1182573,
+      "peak_reading_python_bytes": 1295317,
+      "total_input_budget_bytes": 20971520,
+      "per_input_budget_bytes": 8388608,
+      "reading_budget_bytes": 134217728
+    }
+  },
+  "excluded_from_publication": {
+    ".github/workflows/solver.yml": "GitHub OAuth credential lacks workflow scope; retained in Research; local checks passed"
+  }
+}

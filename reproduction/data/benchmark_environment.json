@@ -1,0 +1,23 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "executable": "D:\\Desktop\\2026Projects\\Research\\matro_selection_20261030\\.venv-matro-selection\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.17.1",
+    "cma": "4.5.0",
+    "matplotlib": "3.11.2",
+    "psutil": "7.0.0"
+  },
+  "errors": [],
+  "math_backend": {
+    "implementation": "x87 FSINCOS paired local CPU primitive",
+    "version": 2,
+    "platform": "Windows x86_64",
+    "bytes": 58,
+    "machine_code_hex": "4883ec18f20f11442408dd442408d9fbdfe0a9000400007415d9ebd8c0d9c9d9f5dfe0a90004000075f5ddd9d9fbd9c9dd1a41dd184883c418c3",
+    "machine_code_sha256": "7368063d26f8f9e6b18b43848b7b8d90b2ff625101276ed232375e57152ef242",
+    "official_library_calls": false,
+    "compiler_required": false
+  }
+}

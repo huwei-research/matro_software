@@ -1,0 +1,9 @@
+reference_mode,target,identities,cost_win,cost_tie,cost_loss,success_win,success_tie,success_loss
+pooled,0.001,136,91,7,38,8,126,2
+pooled,1e-05,136,101,5,30,12,119,5
+pooled,1e-07,136,106,3,27,28,104,4
+pooled,1e-09,136,103,7,26,33,100,3
+declared,0.001,136,92,6,38,8,126,2
+declared,1e-05,136,102,4,30,12,119,5
+declared,1e-07,136,107,2,27,28,104,4
+declared,1e-09,136,104,6,26,33,100,3

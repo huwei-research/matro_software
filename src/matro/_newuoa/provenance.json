@@ -1,15 +1,15 @@
-{
-  "source": "PDFO 2.2.0 maintained Fortran NEWUOA",
-  "source_sha256": {
-    "newuoa.f": "357c7b9b6ab02da2dd9069bf72b679576c8e846c30fb08e9a965dd21757ee9f4",
-    "newuob.f": "40d87ea0b7c86258f3cf3b84fafebcdf04e4fab709866db0796468535799d137",
-    "trsapp.f": "765b64eacec7df977915b64ba633040a8c2ee4d7e27de6f19576037ed3fc0ece",
-    "biglag.f": "be75ec0fbd4398acebcb9e1aa9b73c975245d8361b9597ba514bedcb78635f18",
-    "bigden.f": "a862fe730493cc696d266216e690471e618bb7900cf5e93f911251d30e906389",
-    "update.f": "47860b903a9efee55c4fd95b389d5af1fab9b7e42bd456e766d7952d05c575da"
-  },
-  "generated_sha256": "e5b13ab66901ad4ba6249b660b2e2f23bf3a571a35eeedb9921862f4fda3e0ff",
-  "math_backend": "x87 FSINCOS paired instruction matching all six merged sincos call sites in the pinned -O2 build",
-  "math_backend_sha256": "7faf1ab80ab090022a223e724c94be7d972aa36ccbbcc7b959aa9cd5ea1a51de",
-  "changes": "Scalar Python translation; silent iprint=0; optional state hook at NEWUOB label 100."
+{
+  "source": "PDFO 2.2.0 maintained Fortran NEWUOA",
+  "source_sha256": {
+    "newuoa.f": "357c7b9b6ab02da2dd9069bf72b679576c8e846c30fb08e9a965dd21757ee9f4",
+    "newuob.f": "40d87ea0b7c86258f3cf3b84fafebcdf04e4fab709866db0796468535799d137",
+    "trsapp.f": "765b64eacec7df977915b64ba633040a8c2ee4d7e27de6f19576037ed3fc0ece",
+    "biglag.f": "be75ec0fbd4398acebcb9e1aa9b73c975245d8361b9597ba514bedcb78635f18",
+    "bigden.f": "a862fe730493cc696d266216e690471e618bb7900cf5e93f911251d30e906389",
+    "update.f": "47860b903a9efee55c4fd95b389d5af1fab9b7e42bd456e766d7952d05c575da"
+  },
+  "generated_sha256": "e5b13ab66901ad4ba6249b660b2e2f23bf3a571a35eeedb9921862f4fda3e0ff",
+  "math_backend": "x87 FSINCOS paired instruction matching all six merged sincos call sites in the pinned -O2 build",
+  "math_backend_sha256": "7faf1ab80ab090022a223e724c94be7d972aa36ccbbcc7b959aa9cd5ea1a51de",
+  "changes": "Scalar Python translation; silent iprint=0; optional state hook at NEWUOB label 100."
 }

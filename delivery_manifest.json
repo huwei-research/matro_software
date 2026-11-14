@@ -6,8 +6,8 @@
   "repository": "https://github.com/huwei-research/matro_software",
   "files": {
     "CITATION.cff": {
-      "sha256": "5568e56e21276578a100bb042bb0875a200cfe1058f4eb6c0707ff166cc26d41",
-      "bytes": 402,
+      "sha256": "5137826e5998a8d473b0354347df4108f9b1581989d367a60fd6a611bd389078",
+      "bytes": 416,
       "source": "Research/matro/software/CITATION.cff"
     },
     "kernel_provenance.json": {
@@ -21,22 +21,22 @@
       "source": "Research/matro/software/LICENSE"
     },
     "MANIFEST.in": {
-      "sha256": "f05273b9ca558f35544f1036e8fcba859f7ed8b1db6d5cb9b084fabcba7a7d7f",
-      "bytes": 265,
+      "sha256": "c7958a0fe436dae9e6dafc226cb2ed1d6dd6a42428574af7b5791efccb66bcc0",
+      "bytes": 289,
       "source": "Research/matro/software/MANIFEST.in"
     },
     "pyproject.toml": {
-      "sha256": "45a9e0666c01a74ec1e9ffa2132e279895f7b4b4dfe955e629613e5ab5f93c91",
+      "sha256": "d5d73ba8f41d7a5b5189b7c15d0c13346a51de9f12b2819fb6bab525018b3f15",
       "bytes": 848,
       "source": "Research/matro/software/pyproject.toml"
     },
     "README.md": {
-      "sha256": "bc962dd1027756d41caddcd149375e142dbabe73a5c8d97a5cb6c6074e83b36d",
+      "sha256": "3c011a0101e06d8381c7ef34e41dc9ac1974b182b638631ab328a50b003555f1",
       "bytes": 1328,
       "source": "Research/matro/software/README.md"
     },
     "SOLVER.md": {
-      "sha256": "abf12588e68ecdfa6d7d4602f6f457e910b73667d9e2b8d2cb0473be703dc624",
+      "sha256": "644fb3de45398aa1b1dfd3108e68160c098b69abb8512358cc76a62e54270867",
       "bytes": 3137,
       "source": "Research/matro/software/SOLVER.md"
     },
@@ -116,8 +116,8 @@
       "source": "Research/matro/software/src/matro/_transport.py"
     },
     "src/matro/__init__.py": {
-      "sha256": "f4f72bf414dae8c1d2ffd49d577d41a6bec80735f2622fd985897607206715ec",
-      "bytes": 169,
+      "sha256": "4a4499fc856749b44bc437b14c38650ffa908124e8c4b2b33d837e0fa7f5f53a",
+      "bytes": 174,
       "source": "Research/matro/software/src/matro/__init__.py"
     },
     "src/matro/_newuoa/generate.py": {
@@ -669,6 +669,11 @@
       "sha256": "50d4ba6a59fac8c6b1f83120a45b42118d0d0fa6bc5dc920c25a961e89c9c1ae",
       "bytes": 595613,
       "source": "Research/matro/software/reproduction/data/figure_inputs/trajectories/visual_02_cubic_valley_field.npz"
+    },
+    ".gitattributes": {
+      "sha256": "8e00318bbae89bc26af46d6208b5db2cd3875d0db1fa76cd95d64a9b76296d94",
+      "bytes": 86,
+      "source": "Research/matro/software/.gitattributes"
     }
   },
   "validation": {
@@ -687,5 +692,7 @@
   },
   "excluded_from_publication": {
     ".github/workflows/solver.yml": "GitHub OAuth credential lacks workflow scope; retained in Research; local checks passed"
-  }
+  },
+  "source_version": "0.1.0rc2",
+  "git_storage": "exact original bytes; no line-ending conversion"
 }

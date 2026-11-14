@@ -14,7 +14,7 @@ result = minimize(lambda x: (x[0]-1)**2 + 100*(x[1]-x[0]**2)**2,
 print(result.x, result.fun, result.nfev)
 ```
 
-Version 0.1.0rc1 is the software release candidate. The installed solver is
+Version 0.1.0rc2 is the software release candidate. The installed solver is
 `src/matro`, algorithm `matro-official-python-fullq-001`.
 
 - [API and numerical contract](SOLVER.md)

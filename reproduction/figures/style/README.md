@@ -1,15 +1,8 @@
 # Publication style source
 
-`publication.mplstyle` is an unchanged copy of the scientific-visualization
-skill asset, copied on 2026-11-13 (Asia/Shanghai) from:
-
-`C:/Users/huwei/.codex/skills/scientific-visualization/assets/publication.mplstyle`
-
-The style is actually loaded by `../redraw_figures.py::style()` before the
-paper-specific overrides. The overrides use Latin Modern Roman and Computer
-Modern mathematics, 7.5–9.5 pt figure text, muted dark colors, restrained bands
-and grids, and the final A4 article text width. The base source hash is recorded
-in `../../checks/figure_checks.json`.
+The bundled Matplotlib style sets the shared publication defaults.
+The plotting script applies panel-specific settings and uses Latin Modern
+Roman and Computer Modern mathematics.
 
 The Research Harness contributors' MIT terms are in [LICENSE.md](LICENSE.md).
 The upstream K-Dense MIT license is preserved in

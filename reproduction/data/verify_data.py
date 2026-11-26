@@ -16,7 +16,7 @@ def rows(name):
         yield from csv.DictReader(handle)
 
 
-instances = list(rows("selected147_instances.csv.gz"))
+instances = list(rows("instances.csv.gz"))
 ids = {row["instance_id"] for row in instances}
 assert len(ids) == len(instances) == 147
 assert Counter(row["suite"] for row in instances) == {"mw": 41, "cutest_s2mpj": 106}
@@ -27,8 +27,9 @@ assert len(starts) == 2940
 assert Counter(row["instance_id"] for row in starts) == {key: 20 for key in ids}
 initialization = list(rows("initialization.csv.gz"))
 assert {row["instance_id"] for row in initialization} == ids
-assert Counter(row["source"] for row in initialization) == {
-    "completed_development": 54, "new_per_instance_calibration": 93}
+assert len(initialization) == len(ids)
+assert {(row["instance_id"], int(row["start_id"])) for row in starts} == {
+    (instance, k) for instance in ids for k in range(20)}
 
 totals, success, keys = Counter(), Counter(), set()
 pair_inputs = {}
@@ -85,26 +86,22 @@ coverage = json.loads((HERE / "coverage_metrics.json").read_text())
 assert abs(coverage["rms_ratio"] - 7.528053427440278) < 1e-12
 assert abs(coverage["area_sphere"] - coverage["area_ellipse"]) < 1e-14
 
-manifest = json.loads((HERE / "source_manifest.json").read_text())
-checked_hashes = 0
-for entry in manifest["sources"]:
-    relative = Path(entry["destination"])
-    if relative.parts[0] == "data":
-        current = HERE / relative.name
-        assert hashlib.sha256(current.read_bytes()).hexdigest() == entry["output_sha256"]
-        checked_hashes += 1
+manifest = json.loads((HERE / "input_hashes.json").read_text(encoding="utf-8"))
+for relative, expected_hash in manifest["sha256"].items():
+    path = HERE / relative
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected_hash, relative
+
 peak_bytes = None
 try:
     import psutil
     info = psutil.Process().memory_info()
     peak_bytes = getattr(info, "peak_wset", info.rss)
-    assert peak_bytes < manifest["verification_memory_budget_bytes"]
+    assert peak_bytes < 256 * 1024 * 1024
 except ImportError:
     pass
 result = dict(passed=True, instances=147, starts=2940, unique_runs=17640,
               run_target_rows=70560, counts=expected,
               condition_success_counts=condition_counts,
-              verified_compact_source_hashes=checked_hashes,
-              process_peak_working_set_bytes=peak_bytes)
+              verified_input_hashes=len(manifest["sha256"]))
 (HERE / "verification.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
-print(json.dumps(result, indent=2))
+print(json.dumps(dict(result, process_peak_working_set_bytes=peak_bytes), indent=2))

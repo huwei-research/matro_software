@@ -1,7 +1,6 @@
 [
   {
     "id": "preview_00_rosenbrock",
-    "phase": "preview",
     "function": {
       "name": "rosenbrock",
       "coefficient": 10000.0
@@ -19,14 +18,10 @@
       1.0
     ],
     "record_models": true,
-    "parent_id": "coarse_0237_rosenbrock",
-    "source_version": "source_v2",
     "figure_name": "trajectory_rosenbrock"
   },
   {
     "id": "visual_02_cubic_valley",
-    "phase": "visual",
-    "source_version": "source_v2",
     "function": {
       "name": "cubic_valley",
       "coefficient": 1000.0
@@ -44,14 +39,10 @@
       1.0
     ],
     "record_models": true,
-    "selection_origin": "Improve readable S-shaped geometry with matched radii",
-    "parent_id": "focus_0451_cubic_valley",
     "figure_name": "trajectory_cubic_valley"
   },
   {
     "id": "preview_08_levy",
-    "phase": "preview",
-    "source_version": "source_v2",
     "function": {
       "name": "levy",
       "coordinate_map": [
@@ -80,14 +71,10 @@
       0.18257418583505533
     ],
     "record_models": true,
-    "selection_origin": "anisotropic:coarse_0653_levy",
-    "parent_id": "refined_1412_levy",
     "figure_name": "trajectory_levy"
   },
   {
     "id": "preview_06_different_powers",
-    "phase": "preview",
-    "source_version": "source_v2",
     "function": {
       "name": "different_powers",
       "coordinate_map": [
@@ -116,8 +103,6 @@
       0.0
     ],
     "record_models": true,
-    "selection_origin": "anisotropic:coarse_0794_different_powers",
-    "parent_id": "refined_1613_different_powers",
     "figure_name": "trajectory_different_powers"
   }
 ]

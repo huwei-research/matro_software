@@ -1,125 +1,103 @@
 {
-  "source": "Existing compact plotting inputs only; no objective or optimizer evaluations",
-  "created": "2026-11-10",
-  "timezone": "Asia/Shanghai",
+  "source": "Compact plotting inputs for the manuscript.",
   "files": [
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\mechanism_figures_refined_20261109\\data\\shape_descent.csv.gz",
-      "destination": "data\\figure_inputs\\shape\\shape_descent.csv.gz",
+      "destination": "data/figure_inputs/shape/shape_descent.csv.gz",
       "sha256": "d06f8a4c1d8a242e84d6508338419bca9331bbfb38285cb0946d31e4e51ddec9",
       "bytes": 208548
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\mechanism_figures_refined_20261109\\data\\runs.csv.gz",
-      "destination": "data\\figure_inputs\\shape\\runs.csv.gz",
+      "destination": "data/figure_inputs/shape/runs.csv.gz",
       "sha256": "0d357281389f8021e26b9297e28e1f5758db6f8e738d7835d84ace025ce7f182",
       "bytes": 364864
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\mechanism_figures_refined_20261109\\data\\formal_run_map.json",
-      "destination": "data\\figure_inputs\\shape\\formal_run_map.json",
+      "destination": "data/figure_inputs/shape/formal_run_map.json",
       "sha256": "52493a4090d23771c76a6dacb0d9acbcb89921fda1e9148ccd72d298a2fde211",
       "bytes": 28443
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\index.json",
-      "destination": "data\\figure_inputs\\trajectories\\index.json",
+      "destination": "data/figure_inputs/trajectories/index.json",
       "sha256": "289c6993a70ebc51c3627d8da017a030fa4146d921d1f5aad1520d5af4d773ce",
       "bytes": 116
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\preview_00_rosenbrock.json.gz",
-      "destination": "data\\figure_inputs\\trajectories\\preview_00_rosenbrock.json.gz",
-      "sha256": "806e6b23a060a75bffaf3ed76d101530c13ae60a9099105cb65becee76dceb0e",
-      "bytes": 41143
+      "destination": "data/figure_inputs/trajectories/preview_00_rosenbrock.json.gz",
+      "sha256": "db321c9c179e75ca5d7b6fcdb62c6a9179aa3b37beaad076965280523936a135",
+      "bytes": 41026
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\preview_00_rosenbrock_field.npz",
-      "destination": "data\\figure_inputs\\trajectories\\preview_00_rosenbrock_field.npz",
+      "destination": "data/figure_inputs/trajectories/preview_00_rosenbrock_field.npz",
       "sha256": "5035a36a7aab4e97dd715b039593d85a0e1d5877e57ee83e2a499e27ea3bec3a",
       "bytes": 597952
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\visual_02_cubic_valley.json.gz",
-      "destination": "data\\figure_inputs\\trajectories\\visual_02_cubic_valley.json.gz",
-      "sha256": "f1db6de373bf41b5dd6f44727e3b68f6d5808dad2bc8f4b81973819e506d29f5",
-      "bytes": 50036
+      "destination": "data/figure_inputs/trajectories/visual_02_cubic_valley.json.gz",
+      "sha256": "c74afcd013e010ffc72343297f686fe17908eccdf92d5560f22d366f82fa00de",
+      "bytes": 49796
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\visual_02_cubic_valley_field.npz",
-      "destination": "data\\figure_inputs\\trajectories\\visual_02_cubic_valley_field.npz",
+      "destination": "data/figure_inputs/trajectories/visual_02_cubic_valley_field.npz",
       "sha256": "50d4ba6a59fac8c6b1f83120a45b42118d0d0fa6bc5dc920c25a961e89c9c1ae",
       "bytes": 595613
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\preview_08_levy.json.gz",
-      "destination": "data\\figure_inputs\\trajectories\\preview_08_levy.json.gz",
-      "sha256": "0508688283496e41774088e007f872077f8491176fab35758ed2a62152eb4775",
-      "bytes": 17010
+      "destination": "data/figure_inputs/trajectories/preview_08_levy.json.gz",
+      "sha256": "b5759198ddbcaaa5753278cdd1283d3f8359d8b1d86e04443a7661445dfe5fa7",
+      "bytes": 16902
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\preview_08_levy_field.npz",
-      "destination": "data\\figure_inputs\\trajectories\\preview_08_levy_field.npz",
+      "destination": "data/figure_inputs/trajectories/preview_08_levy_field.npz",
       "sha256": "a4c85676fd3d25ab9b347c6b12641fc653c8908aab43f806c9bc2d59838d2aed",
       "bytes": 598301
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\preview_06_different_powers.json.gz",
-      "destination": "data\\figure_inputs\\trajectories\\preview_06_different_powers.json.gz",
-      "sha256": "c6b07e805e978d5f480648901b27307e2aa932544aa035a82aee251f05d50510",
-      "bytes": 14525
+      "destination": "data/figure_inputs/trajectories/preview_06_different_powers.json.gz",
+      "sha256": "33abd8378df9e658c7bec9529a3330d138ce1e68d5c8558f621673d340e544d9",
+      "bytes": 14396
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\trajectory_search_20261109\\data\\preview_06_different_powers_field.npz",
-      "destination": "data\\figure_inputs\\trajectories\\preview_06_different_powers_field.npz",
+      "destination": "data/figure_inputs/trajectories/preview_06_different_powers_field.npz",
       "sha256": "1b487546ef4f86a027d2eb90590c9a1e360e60f34807db0cdd130c20423af906",
       "bytes": 594072
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\figures_selected147_20261109\\data\\profiles_1e-3.csv.gz",
-      "destination": "data\\figure_inputs\\profiles_1e-3.csv.gz",
+      "destination": "data/figure_inputs/profiles_1e-3.csv.gz",
       "sha256": "b3db2589e20aeb458fc82eeac4526f5c3a22ceb991db14a5a93f63673f741ef4",
       "bytes": 159072
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\figures_selected147_20261109\\data\\profiles_1e-5.csv.gz",
-      "destination": "data\\figure_inputs\\profiles_1e-5.csv.gz",
+      "destination": "data/figure_inputs/profiles_1e-5.csv.gz",
       "sha256": "f68cf64b689ca0bc6afd7ca9d9a525822806ab590d10ee7c1cc1b1731a008a22",
       "bytes": 192709
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\figures_selected147_20261109\\data\\profiles_1e-7.csv.gz",
-      "destination": "data\\figure_inputs\\profiles_1e-7.csv.gz",
+      "destination": "data/figure_inputs/profiles_1e-7.csv.gz",
       "sha256": "93c807e4d5e2ea824f54da9a11b13753f5e9eb002701757eda1ece45dbaca7ff",
       "bytes": 198047
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\figures_selected147_20261109\\data\\profiles_1e-9.csv.gz",
-      "destination": "data\\figure_inputs\\profiles_1e-9.csv.gz",
+      "destination": "data/figure_inputs/profiles_1e-9.csv.gz",
       "sha256": "920450f0ab341bfcfcf334bcfc90ba29ef935784732846c485b6276291932d0a",
       "bytes": 189502
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\paper_figures_20261109\\data\\candidate_descent.csv.gz",
-      "destination": "data\\figure_inputs\\nine_descent.csv.gz",
+      "destination": "data/figure_inputs/nine_descent.csv.gz",
       "sha256": "71b18c7132c97464853c24ce653daf3ae0c2dcb77416a4949c35848dfa1c3c4c",
       "bytes": 314315
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\paper_figures_20261109\\data\\instances.csv.gz",
-      "destination": "data\\figure_inputs\\nine_instances.csv.gz",
-      "sha256": "70e585fd60c6dbf1d7e9872423fceac622ed34793af856d2383f918e8a6ba153",
-      "bytes": 18070
+      "destination": "data/figure_inputs/nine_instances.csv.gz",
+      "sha256": "f369d745f706712f4ebc796ee3f108896050c48de85f9fdbb6985a29098dcd56",
+      "bytes": 211
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\mechanism_figures_refined_20261109\\data\\conditioning_summary.csv",
-      "destination": "data\\figure_inputs\\conditioning_summary.csv",
+      "destination": "data/figure_inputs/conditioning_summary.csv",
       "sha256": "d439d6cb8698a7358347d376164b0cc5c7b144dcab66bbe2d0700f17e6ee2b49",
       "bytes": 11906
     },
     {
-      "source": "D:\\Desktop\\2026Projects\\Research\\matro\\notes\\mechanism_figures_refined_20261109\\data\\coverage_field.npz",
-      "destination": "data\\figure_inputs\\coverage_field.npz",
+      "destination": "data/figure_inputs/coverage_field.npz",
       "sha256": "7f0425dd9154b17436d121c5988c7f4450d8f6f570263079587cd48086612d87",
       "bytes": 1182573
     }
@@ -127,5 +105,5 @@
   "figure_input_budget_bytes": 8000000,
   "single_file_budget_bytes": 2000000,
   "plot_peak_working_set_budget_bytes": 805306368,
-  "total_input_bytes": 5376817
+  "total_input_bytes": 5358364
 }

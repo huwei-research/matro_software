@@ -10,10 +10,6 @@
     "1": 125,
     "2": 11
   },
-  "candidate_configurations": 211,
-  "eligible_configurations": 147,
-  "eligible_equals_selected": true,
-  "score_truncated_eligible_membership": false,
   "distinct_references": 45,
   "exactly_equal_threshold_records": 55464,
   "recovered_changed_threshold_records": 15096,
@@ -26,12 +22,11 @@
   "wtl_cost_tolerance": 1e-12,
   "source_hashes": {
     "data/runs.csv.gz": "0087858e13b02776bac0536ded38b114152cf9e58ee6bdf5690483124bc65c59",
-    "data/selected147_instances.csv.gz": "318f260a6995154e08e31409914c18cf23764c0e9f278c51b3099c4a439a1891",
+    "data/instances.csv.gz": "0b246bbdd86673cd3bd40b808276efd68ca54dd51d265bdd5a23b88b539d5b74",
     "data/references.csv.gz": "238ebd9e24772051c2e1e39b7dda76c17176f5c3a724f0ba4e0a0cd864976036",
-    "data/initialization.csv.gz": "619ae57d6b1b225de172b0780d2b2ba856ca2452607dd8f39fc45d918a5e40ca",
-    "data/starts.csv.gz": "bbb89a08e16f10bd701d61fe42f8e9b4fec514ef2153763811ab5d60c79a3cb4",
-    "statistics/candidate_inventory.csv.gz": "ab02be0dda746268dc39ad3432e042cd7a9d5943e72c70ea73eaefd7b19288a2",
+    "data/initialization.csv.gz": "0090155d30c18c1dd5b799c90afda1ef4992b7eb12efa5dda2659ca9e87e7893",
+    "data/starts.csv.gz": "77c04ccbcd3956111552330e034cd4ee94951e829c9b515a2537026620f9dcc4",
     "statistics/reference_hit_checks.csv.gz": "3b6c21d199bf6bfcf436067549a545adb72ae93aee31fc771779065ff36274ca",
-    "statistics/canonical_run_values.csv.gz": "438fa37e24790108eb6f80cd39b4a616ceaabb502820586313d84d8d4aa31ffa"
+    "statistics/canonical_run_values.csv.gz": "f136657c5e253f2ed9b45e4da2f7c84dcbadf9fef424f18b24144d67ae13a45e"
   }
 }

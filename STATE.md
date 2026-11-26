@@ -1,5 +1,7 @@
-# matro software delivery
+# MATRO software delivery
 
-Published: https://github.com/huwei-research/matro_software/releases/tag/v0.1.0rc2
+Release `v0.1.0rc3` accompanies manuscript v15.6. The solver is available
+under `src/matro/`. The compact experiment inputs and the instructions for
+reproducing the tables and figures are in [reproduction](reproduction/README.md).
 
-Release commit: b1251b01196bb291d2ce6f5e3d43ebed5c17b3ab. Independent GitHub clone, asset SHA256, downloaded-wheel tests and compact-data checks passed. Source: Research/matro/software. Last verified: 2026-11-14T22:26:31.534085+08:00.
+[Release and downloads](https://github.com/huwei-research/matro_software/releases/tag/v0.1.0rc3)

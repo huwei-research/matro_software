@@ -10,9 +10,6 @@ an external optimizer.
 
 ## Fixed algorithm and source map
 
-All source paths below are relative to the Research/matro repository root.
-The source tree is maintained separately from this manuscript archive.
-
 For dimension $n\geq2$, the interpolation size is
 $q=(n+1)(n+2)/2$. The quadratic model retains its signed Hessian. The metric
 is formed from the physical Hessian $H_x=V\operatorname{diag}(\lambda_i)V^T$:
@@ -44,15 +41,15 @@ radii, evaluation budget, mode, and arithmetic backend.
 
 | Operation | Source |
 |---|---|
-| Public inputs, return value, and evaluation callback | `src/matro/_api.py` |
-| Algorithm identifier and local core | `src/matro/_solver.py` |
-| Proposal timing, physical Hessian, and joint state update | `src/matro/_controller.py` |
-| Relative geodesic update and matrix roots | `src/matro/_metric.py` |
-| Spectral regularization, cap, normalization, and identity test | `src/matro/_metric_utils.py` |
-| Polynomial transport and full interpolation factors | `src/matro/_transport.py` |
-| Scalar NEWUOA routines | `src/matro/_newuoa/generated.py` |
-| Core interface and extreme barrier | `src/matro/_newuoa/__init__.py` |
-| Arithmetic compatibility | `src/matro/_newuoa/x87_math.py` |
+| Public inputs, return value, and evaluation callback | [`_api.py`](../src/matro/_api.py) |
+| Algorithm identifier and local core | [`_solver.py`](../src/matro/_solver.py) |
+| Proposal timing, physical Hessian, and joint state update | [`_controller.py`](../src/matro/_controller.py) |
+| Relative geodesic update and matrix roots | [`_metric.py`](../src/matro/_metric.py) |
+| Spectral regularization, cap, normalization, and identity test | [`_metric_utils.py`](../src/matro/_metric_utils.py) |
+| Polynomial transport and full interpolation factors | [`_transport.py`](../src/matro/_transport.py) |
+| Scalar NEWUOA routines | [`_newuoa/generated.py`](../src/matro/_newuoa/generated.py) |
+| Core interface and extreme barrier | [`_newuoa/__init__.py`](../src/matro/_newuoa/__init__.py) |
+| Arithmetic compatibility | [`_newuoa/x87_math.py`](../src/matro/_newuoa/x87_math.py) |
 
 ## Initialization, radius, and termination
 
@@ -62,7 +59,7 @@ $x_0+r_{\mathrm{beg}}(\epsilon_i e_i+\epsilon_j e_j)$ for each unordered
 pair $i\neq j$. Here $\epsilon_i=-1$ when the negative axial point has a
 smaller value than the positive axial point, and $\epsilon_i=1$ otherwise.
 The query order is the one in the retained
-`src/matro/_newuoa/reference_source/newuob.f`. Once all $q$
+[`newuob.f`](../src/matro/_newuoa/reference_source/newuob.f). Once all $q$
 values are available, their minimum determines the initial model center
 and the first metric proposal can be considered. A smaller budget can end
 the run during this initialization.
@@ -314,13 +311,13 @@ machine bytes and hash are available from the backend metadata. Exact
 query-sequence comparisons use this recorded arithmetic environment;
 the portable backend records `bitwise_reference_parity=False`.
 
-The retained `src/matro/_newuoa/reference_source`,
-`src/matro/_newuoa/source_map.json`,
-`src/matro/_newuoa/provenance.json`, and
-`src/matro/_newuoa/README.md` identify the scalar
+The retained [reference sources](../src/matro/_newuoa/reference_source),
+[source map](../src/matro/_newuoa/source_map.json),
+[provenance manifest](../src/matro/_newuoa/provenance.json), and
+[kernel documentation](../src/matro/_newuoa/README.md) identify the scalar
 translation. The `release_files` entries in
-`kernel_provenance.json` give the hashes of
+[`kernel_provenance.json`](../kernel_provenance.json) give the hashes of
 the installed candidate; the inner provenance manifest records the earlier
 translation before namespace and backend integration. The translated kernel retains its
-`src/matro/_newuoa/LICENSE.txt`. General API and
+[BSD-3-Clause license](../src/matro/_newuoa/LICENSE.txt). General API and
 release instructions are in [SOLVER.md](../SOLVER.md).

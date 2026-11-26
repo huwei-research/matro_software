@@ -9,9 +9,9 @@
   "version_index": "Research/matro/paper/versions.json",
   "entries": {
     "solver": "src/matro",
-    "experiments": "codes/experiments",
-    "manuscripts": "paper",
-    "results": "results"
+    "documentation": "docs",
+    "reproduction": "reproduction",
+    "tests": "tests"
   },
   "path_base": "workspace_root",
   "policy": "research_harness/policies/research_delivery_layout.md",

@@ -1,6 +1,5 @@
 {
   "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
-  "executable": "D:\\Desktop\\2026Projects\\Research\\matro_selection_20261030\\.venv-matro-selection\\Scripts\\python.exe",
   "platform": "Windows-11-10.0.26200-SP0",
   "versions": {
     "numpy": "1.26.4",

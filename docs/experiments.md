@@ -1,150 +1,50 @@
 # Experimental protocol and reproduction
 
-This document records the historical protocol behind the MATRO manuscript's fixed
-147-instance comparison and its shape-mechanism figures. It accompanies the
-frozen v12.7 experimental protocol retained by the v14.1 manuscript. The manuscript retains the scientific
-comparisons, mathematical definitions, and conclusions; this document supplies
-initialization, software, data, and plotting details.
-
-The installed solver in this repository is `src/matro`, with API
-`matro.minimize` and configuration `matro-official-python-fullq-001`. The
-historical `codes/experiments/paper/` scripts belong to earlier experiments.
-The current 147-instance records and the commands below use the manuscript's
-separate compact evidence distribution. That distribution is required to
-reproduce the current tables and figures. This Research repository also maintains the manuscript in `paper/` and
-the original experiment archives at their recorded locations. Current
-solver source is in `src/matro`, and experiment programs are in `codes/`.
+The tables and figures in manuscript v15.6 use the paired benchmark records
+and plotting inputs included with the solver. The reproduction guide lists
+the programs for regenerating them.
 
 ## 1. Fixed comparison
 
 There are 147 instances, twenty starts per instance, and six methods: MATRO,
 full-interpolation NEWUOA, NEWUOA with `2*n+1` points, unconstrained COBYQA,
 Nelder–Mead, and CMA-ES. The 2940 paired tasks produce 17640 runs. All twenty
-starts of every retained instance enter every profile. The collection contains
+starts of every instance enter every profile. The collection contains
 41 Moré–Wild configurations and 106 CUTEst configurations evaluated through
 S2MPJ. Dimensions 2 through 12 have counts
 `46, 22, 15, 4, 17, 7, 18, 2, 6, 1, 9`, respectively. Moré–Wild identifiers retain
 the collection's distinct dimensions and author starting scales.
 
-The collection was assembled according to the distribution of functions in
-the source test sets, with interest in anisotropic and ill-conditioned
-objectives. The saved candidate table has 211 configurations: 158 CUTEst/S2MPJ
-and 53 Moré–Wild. Exactly 147 configurations satisfy the recorded eligibility
-checks, and all 147 are retained. The performance score in the saved analysis
-orders these configurations; it does not truncate the eligible collection.
-The eligibility checks use numerical validity, target attainment by any
-compared method, and triviality/discrimination diagnostics. Per-function
-initialization calibration and the later selection of illustrative curves
-are separate operations. The versioned computational materials accompanying
-the current manuscript preserve the complete counts, rules, and mapping.
+Observed MATRO and full NEWUOA performance informed the development of the
+benchmark settings. The reported comparisons describe performance on these 147
+configurations.
 
 ### Coordinates and paired starts
 
-For an instance, let `c` be its physical center, `A` its fixed invertible
-coordinate matrix, `Delta0` its initial scalar radius, and `d` its perturbation
-scale vector. Start `j`, for `j = 0,...,19`, is
-
-$$
-x_0^{(j)}=c+0.1\,2^{-b_j}\operatorname{diag}(d)\xi_j,
-\qquad \xi_j\sim N(0,I).
-$$
-
-The solver starts at `z = 0` on
+For each paired task, all six solvers start at `z = 0` on the same objective
 
 $$F_j(z)=f(x_0^{(j)}+Az).$$
 
-All methods receive the same map, physical start, and scalar initial radius.
-`b_j` is the first nonnegative backtracking index for which the initial value
-is finite with magnitude below `2**100`; indices 0 through 20 are tried. The
-check uses objective validity alone. A repeated physical start caused by
-floating-point resolution raises an error. The selected 2940 starts are stored
-explicitly, so reproduction can read them without regenerating random draws.
-
-The frozen protocol constructs positive integer seeds as follows:
-
-```python
-import hashlib
-
-def stable_seed(*parts):
-    payload = "|".join(map(str, parts)).encode()
-    value = int.from_bytes(hashlib.sha256(payload).digest()[:4], "little")
-    return value % (2**31 - 2) + 1
-
-start_seed = stable_seed("start", 20261030, instance_id, start_id)
-algorithm_seed = stable_seed("cma", 20261030, instance_id, start_id)
-```
-
-`numpy.random.default_rng(start_seed).normal(size=n)` generates the start
-perturbation. The second seed is supplied to CMA-ES. The stored start file
-contains both seeds and the backtracking index.
+The 147 final instance identifiers and objective identities are recorded in
+`instances.csv.gz`. Each instance fixes the invertible matrix $A$ and the initial
+scalar radius.
+The twenty physical starts $x_0^{(j)}$ are recorded in `starts.csv.gz`.
+Of the 147 coordinate maps, 126 are identities, 19 are nonidentity diagonal
+maps, and two are rotated scalings with condition number 100.
 
 The input-coordinate Hessian and physical metric satisfy
 
 $$H_z=A^T H_x A,\qquad M_x=A^{-T}M_zA^{-1}.$$
 
-The model and adaptive metric are constructed in the supplied variable `z`.
-The internal NEWUOA coordinates provide a further changing representation of
-this same supplied objective.
-
-### Per-instance initialization
-
-Fifty-four retained instances use settings from earlier development runs;
-ninety-three use the following calibration. For a generic author start
-`x_author`, candidate centers are `x_author`, `0.5*x_author`, and
-`1.5*x_author`, with duplicate or invalid centers removed. If documented
-physical parameter scales are available, the centers are instead the author
-center and two displacements
-
-$$c\pm0.25\operatorname{diag}(d)\eta,$$
-
-where `eta` is a normal draw seeded with
-`stable_seed("calibration_anchor", instance_id)`.
-Candidate radii are `0.1, 0.25, 0.5, 1, 2`. Identity coordinates are always
-included. A diagonal physical-scale map is also considered for documented
-parameter scales or nonzero parameter magnitudes whose ratio is at least 100.
-
-Each candidate is run with MATRO and full NEWUOA at budget `250*(n+1)`.
-Selection first requires stable completed runs, then favors MATRO target
-attainment and a larger full-NEWUOA/MATRO first-hit ratio. These inputs are
-fixed before generating the twenty fresh paired starts. Earlier settings can
-have radii outside this grid; the exact saved values govern reproduction.
-
-### Retained-instance rules
-
-The fixed collection requires complete six-method records, no terminal errors,
-no nonfinite model states, and no nonfinite or extreme objective queries
-(`abs(f) >= 2**100`). At relative target `1e-7`:
-
-- At least 20% of starts must be solved by some method.
-- At most 80% may be solved within `max(5, n+1)` queries.
-- At least 20% must discriminate through unequal success or a ratio of at least
-  1.2 between the largest and smallest successful first-hit counts.
-
-For eligible instances the saved score is
-
-```text
-4*(MATRO_success - full_NEWUOA_success)
-+ mean(log(full_capped / MATRO_capped))
-+ 0.15*mean(log(best_other_capped / MATRO_capped))
-+ 0.15*min(6, log10(max(1, curvature_dispersion)))
-```
-
-Success terms are fractions. The curvature dispersion is an offline diagnostic:
-a finite-difference absolute-Hessian spectral ratio when available, otherwise
-declared structural evidence or axial central-second-difference dispersion
-from full NEWUOA's first-start initialization. The diagnostic is recorded with
-its source. Distinct author-start configurations are retained; verified
-cross-library duplicate entries with an explicit `duplicate_of` marker are
-excluded. `selection_rules.json` is the machine-readable specification and
-`selected147_instances.csv.gz` records the actual selection.
+The quadratic model and adaptive metric are constructed in the supplied
+variable `z`.
 
 ### Reference values and target counts
 
-Reference values are unified by base-objective identity across author starting
-scales, methods, calibration runs, and saved attempts. Each reference is the
-minimum of the declared values and all finite saved observations for that
-identity. There are 136 objective identities among the 147 instances. The
-reference is used only in analysis.
+There are 136 objective identities among the 147 instances. For each
+identity, the reference used in the analysis is the minimum of the declared
+values and the finite objective values recorded during initial setup and solver
+runs. All methods and starts share that reference.
 
 For each run and target `tau` in `1e-3, 1e-5, 1e-7, 1e-9`, the first-hit count
 is the first actual query satisfying
@@ -158,9 +58,7 @@ has infinite first-hit count; a finite attained target remains credited.
 Profiles use exact query-level first-hit records, independently of the
 subsampled display curves. Every task has equal weight, including failures.
 For a task failed by all methods, every performance ratio is infinite. Capped
-counts assign `B` to failures. The archived analysis chooses the first completed
-attempt, or otherwise the latest terminal attempt; all attempt expenditures
-are separately retained in the original records.
+counts assign `B` to failures.
 
 ## 2. Solver and software settings
 
@@ -187,8 +85,7 @@ and full NEWUOA begin with identical complete interpolation sets of
 MATRO recomputes its target after the first full model and after strict
 incumbent improvement at a completed-model boundary. See
 [algorithm documentation](algorithm.md) and the solver source for the exact
-eligibility and acceptance rules. No solver rule changes were made in the
-v12.7 editorial revision.
+update and acceptance rules.
 
 CMA-ES evaluates and charges the common start before its first population.
 The final mean is evaluated when budget remains; a final partial population
@@ -243,8 +140,8 @@ center is approximately `(1.90557688, 3.63205861)` and the current radius is
 one to floating-point precision and ellipse axis ratio `4.448339`. The two
 prediction domains have equal area `pi*0.1**2`.
 
-The displayed coordinates use one common orthogonal rotation and divide both
-axes by `0.1`. The absolute-error heatmap uses square-root color normalization
+Figure 1 shows the objective contours and the two regions in physical
+displacements, with $s_2/\Delta$ horizontal and $s_1/\Delta$ vertical. The absolute-error heatmap uses square-root color normalization
 and saturates above `0.4`. Area fractions use equal-area quadrature. The
 root-mean-square error is
 
@@ -252,8 +149,7 @@ $$\operatorname{RMS}(E)=
 \left(|E|^{-1}\int_E|f(x_k+s)-m_k(s)|^2\,ds\right)^{1/2}.$$
 
 The disk and ellipse values are `0.1848557` and `0.0245556`; the area fractions
-with absolute error at most `0.1` are `70.906%` and `99.392%`. This state was
-selected for a readable axis ratio and a clear coverage difference.
+with absolute error at most `0.1` are `70.906%` and `99.392%`.
 
 The offline candidates globally minimize this fixed quadratic over their
 respective domains. The original two-dimensional computation compares all
@@ -281,9 +177,8 @@ Benchmark descent curves use pointwise medians over all twenty starts, with
 interquartile bands for MATRO and full NEWUOA. Incumbent values are step
 functions and are carried forward after termination. Gaps below `1e-10` are
 shown at the lower axis limit. Exact first-hit counts are read independently
-from the display curves. The nine examples were selected for favorable MATRO
-behavior across different function structures; all twenty starts enter each
-example.
+from the display curves. The nine examples illustrate favorable MATRO runs.
+Each example includes all twenty starts.
 
 The four spatial examples have the following definitions and inputs:
 
@@ -307,16 +202,12 @@ $$f(u)=\sin^2(\pi w_1)+(w_1-1)^2[1+10\sin^2(\pi w_1+1)]
 All four examples use six interpolation points, budget `1500`, and final radius
 `1e-8`. Unrounded inputs are stored in `trajectory_cases.json`.
 
-The configuration search covered ten function families and 5242 distinct inputs.
-The displayed examples were chosen for evaluation advantage at multiple targets,
-different structures, and readable actual regions. After fixing them, eight
-new start perturbations per function were crossed with radius multipliers
-`0.8, 1, 1.25`, giving 24 neighboring comparisons per function. Base-coordinate
-perturbations have independent uniform coordinates at amplitude
-`0.01*max(1, norm(u0-u_star))`, using seed `2026110917`. Both methods reach
-`1e-7` in every comparison. MATRO uses fewer evaluations in `24,16,24,24`
-cases, with median full-NEWUOA/MATRO ratios `2.624,1.130,2.068,1.900`.
-`trajectory_neighbors.csv` retains these grouped summaries.
+The four examples illustrate cases in which the metric produced earlier
+target attainment. The neighborhood check uses eight other starts per
+function, each paired with three radius multipliers (0.8, 1, 1.25).
+MATRO uses fewer evaluations to reach the target in 24, 16, 24 and 24 of
+these 24 comparisons for the four examples in table order. The grouped
+summaries are in `trajectory_neighbors.csv`.
 
 Spatial curves connect recorded trust-region centers through the first
 attainment of relative gap `1e-9`, ending at the best evaluated point at that
@@ -328,79 +219,9 @@ at the common window. Background objective grids are computed offline and
 never supplied to the optimizers. The figure inputs retain the histories,
 displayed states, and selected indices.
 
-## 6. Compact evidence files
+## 6. Reproduce the manuscript results
 
-The evidence distribution uses the following layout, relative to its revision
-directory. CSV files are gzip-compressed and can be read row by row.
-
-| File under `data/` | Content |
-| --- | --- |
-| `selected147_instances.csv.gz` | 147 identifiers, source suite, dimension, objective identity, numerical validity, paired performance, and selection scores |
-| `initialization.csv.gz` | One row per instance: `center`, `matrix`, `radius`, `perturbation_scale`, reference, source, condition, and candidate identifier |
-| `starts.csv.gz` | 2940 starts: instance/start identifiers, `physical_start`, `solver_start`, radius, budget, `start_seed`, `start_backtracks`, initialization source, and `algorithm_seed` |
-| `runs.csv.gz` | 70560 run–target rows: `job_id`, `instance_id`, `start_id`, `method`, `n`, `budget`, `radius`, `f0`, `reference`, `actual_calls`, `target`, `hit`, and `success` |
-| `references.csv.gz` | 136 objective identities and declared, observed, and unified reference values |
-| `selection_rules.json` | Eligibility, ranking formula, duplicate handling, target and reference definitions |
-| `benchmark_environment.json` | Recorded benchmark interpreter and dependency versions |
-| `mechanism_inputs.json` | Full-precision shared mechanism starts, coordinate maps, radii, and budgets |
-| `conditioning_summary.csv`, `shape_summary.csv`, `coverage_metrics.json` | Numerical summaries of the mechanism comparisons |
-| `nine_example_metrics.csv` | Exact target counts for the nine descent examples |
-| `trajectory_cases.json`, `trajectory_neighbors.csv` | Four displayed configurations and neighboring-start summary groups |
-| `fixed_state_input.json`, `fixed_state_reconstruction.py`, `fixed_state_reconstruction.json` | Independent fixed-six-point calculation |
-| `figure_inputs/` | Frozen compact profile arrays, descent curves, coverage field, trajectory states, and background grids for all eight main figures |
-| `source_manifest.json` | Original source locations, source/output SHA-256 digests, frozen configuration and execution hashes, and storage budgets |
-
-The compact distribution preserves all comparison denominators, pair identities,
-failures, exact target counts, selected inputs, and plotting data. Complete raw
-query journals, every candidate configuration, and full model-state histories
-remain in the research archives identified by the manifest. Absolute historical
-paths in the manifest document provenance; the checks below read local compact
-files and do not require those historical paths.
-
-The source collections include the received November 4 benchmark analysis
-(`received_selection_20261104`, experiment `MATRO_selection_20261030`), and the
-November 9 profile, mechanism, and trajectory figure archives. The raw data
-remain preserved. This document relocates explanation only.
-
-The compact data budget is 8 MB, with a 2 MB per-file bound. Statistical
-verification has a 256 MiB memory budget and figure regeneration a 768 MiB
-budget. The inherited evidence records approximately 0.93 MB of statistics
-and 5,376,817 bytes of plotting inputs, with a largest plotting file of
-1,182,573 bytes. Recorded isolated checks used about 48 MB for statistics and
-312,606,720 bytes for drawing. Actual file hashes, byte counts, and checks are
-recorded next to their versioned artefacts.
-
-## 7. Verified reproduction entry points
-
-Use the compact evidence distribution matching the manuscript version. The
-following three scripts exist in the v12.7 distribution. The paths below are
-relative to its revision directory, containing `data/` and `figures/`:
-
-```text
-python data/verify_data.py
-python -m pip install -r data/requirements_figures.txt
-python figures/redraw_figures.py
-```
-
-The first command checks paired inputs, counts, target bookkeeping, success
-tables, anisotropy summaries, and compact-file hashes. The plotting script
-reads only `data/figure_inputs/`, writes PDF/SVG/PNG outputs alongside itself,
-and performs no objective queries. Copy both the data directory and plotting
-script while preserving their relative paths. These commands reproduce the
-existing analysis and figures from their retained numerical inputs.
-
-For the fixed-state calculation, with NumPy and SciPy available:
-
-```text
-python data/fixed_state_reconstruction.py --output fixed_state_recheck.json
-```
-
-Use a new output name so that the archived reconstruction remains intact.
-This command performs the nine offline evaluations described above. It is
-separate from figure redrawing and statistical verification.
-
-Fresh optimization runs require the archived experiment source, problem
-sources, and full configuration identified by `source_manifest.json`.
-The historical public `codes/experiments/paper` entry points do not themselves
-implement this frozen 147-instance campaign. The versioned compact evidence
-supports independent reanalysis without launching that campaign.
+The [reproduction instructions](../reproduction/README.md) list the Python
+dependencies and commands. Table 1 is computed from the compact run records.
+Table 2 uses the six fixed interpolation samples. The plotting program reads
+the archived inputs to generate the eight manuscript figures.

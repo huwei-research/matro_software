@@ -10,7 +10,11 @@ authors:
     given-names: Ya-Xiang
   - family-names: Zhang
     given-names: Li
-year: 2026
-license: MIT
+version: 0.1.0rc3
+date-released: 2026-11-27
+repository-code: "https://github.com/huwei-research/matro_software"
+license:
+  - MIT
+  - BSD-3-Clause
 
 

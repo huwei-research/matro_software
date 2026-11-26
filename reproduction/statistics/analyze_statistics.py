@@ -1,13 +1,6 @@
-"""Recompute MATRO benchmark statistics from saved records, without objectives/solvers.
-
-Default mode uses only the small, paper data and statistics inputs.
-The optional preparation modes read the historical analysis and query archive.
-Python 3.10+ standard library only.  All files are relative to this script.
-"""
+"""Recompute the manuscript tables from the published run-level records."""
 from __future__ import annotations
 
-import argparse
-import ast
 from collections import Counter, defaultdict
 import csv
 import gzip
@@ -17,14 +10,12 @@ import json
 import math
 from pathlib import Path
 import sys
-import zipfile
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE.parent / "data"
 METHODS = ("matro", "newuoa_full", "newuoa_standard", "cobyqa", "nelder_mead_tight", "cmaes")
 LABELS = ("MATRO", "NEWUOA (full)", "NEWUOA ($2n+1$)", "COBYQA", "Nelder--Mead", "CMA-ES")
 TAUS = (1e-3, 1e-5, 1e-7, 1e-9)
-PREFIX = "MATRO_selection_20261030/formal_dimension_order_20261101/"
 
 
 def read_csv(path):
@@ -104,162 +95,27 @@ def threshold(reference, tau, f0):
     return reference + tau * max(0.0, f0 - reference)
 
 
-def preparation(source):
-    """Capture compact provenance inputs; preserve every original artifact."""
-    rows = list(read_csv(source / "candidate_ranking.csv"))
-    fields = ["instance_id", "suite", "name", "n", "identity_group", "expected_starts",
-              "expected_runs", "available_runs", "terminal_errors", "nonfinite_queries",
-              "extreme_queries", "model_nonfinite_states", "audit_errors", "any_success_fraction",
-              "trivial_fraction", "discriminating_fraction", "eligible", "exclusion_reasons",
-              "selection_score", "rank", "selected"]
-    write_csv("candidate_inventory.csv.gz", ({k: r[k] for k in fields} for r in rows), fields)
-    receipt = {"source_analysis": str(source.resolve()),
-               "analysis_receipt": json.loads((source / "analysis_receipt.json").read_text(encoding="utf-8-sig")),
-               "scope_receipt": json.loads((source / "scope_receipt.json").read_text(encoding="utf-8-sig")),
-               "source_sha256": {name: sha256(source / name) for name in
-                   ("candidate_ranking.csv", "analysis_receipt.json", "scope_receipt.json", "runs_metrics.csv.gz", "selection_rules.json")}}
-    write_json("provenance_source.json", receipt)
-    # All 211 terminal candidate configurations, including qualification failures.
-    acc = defaultdict(lambda: [0, 0, 0.0])
-    selected = {r["instance_id"] for r in read_csv(DATA / "selected147_instances.csv.gz")}
-    compact = {(r["job_id"], float(r["target"])): r for r in read_csv(DATA / "runs.csv.gz")}
-    canonical = {}
-    for row in read_csv(source / "runs_metrics.csv.gz"):
-        key = (float(row["target"]), row["method"])
-        hit = hit_value(row["hit"])
-        budget = int(row["budget"])
-        a = acc[key]
-        a[0] += 1
-        a[1] += hit is not None
-        a[2] += (hit if hit is not None else budget) / budget
-        if row["instance_id"] in selected:
-            original = compact[row["job_id"], float(row["target"])]
-            assert hit_value(original["hit"]) == hit
-            canonical[row["job_id"]] = {k: row[k] for k in ("job_id", "f0", "reference", "attempt")}
-    records = []
-    for tau in TAUS:
-        for method in METHODS:
-            count, solved, total = acc[tau, method]
-            records.append(dict(target=tau, method=method, tasks=count, successes=solved,
-                                success_rate=solved / count, mean_capped_budget_fraction=total / count))
-    write_csv("candidate_pool_summary.csv", records)
-    write_csv("canonical_run_values.csv.gz", [canonical[k] for k in sorted(canonical)])
-
-
-def recover_reference_hits(source, archive):
-    """Recover exact first hits only where reference changes alter thresholds."""
-    identities = {r["instance_id"]: r["identity_group"] for r in read_csv(DATA / "selected147_instances.csv.gz")}
-    refs = {r["identity_group"]: r for r in read_csv(DATA / "references.csv.gz")}
-    canonical = {r["job_id"]: r for r in read_csv(HERE / "canonical_run_values.csv.gz")}
-    needed = defaultdict(list)
-    for row in read_csv(DATA / "runs.csv.gz"):
-        declared = float(refs[identities[row["instance_id"]]]["declared_reference"])
-        exact = canonical[row["job_id"]]
-        pooled = float(exact["reference"])
-        tau, f0 = float(row["target"]), float(exact["f0"])
-        assert pooled == float(refs[identities[row["instance_id"]]]["unified_reference"])
-        old, new = threshold(pooled, tau, f0), threshold(declared, tau, f0)
-        if old != new:
-            needed[row["job_id"]].append(dict(target=tau, pooled_threshold=old,
-                declared_threshold=new, expected_pooled_hit=hit_value(row["hit"])))
-    attempts = {job: canonical[job]["attempt"].replace("\\", "/") for job in needed}
-    assert set(attempts) == set(needed)
-    hit_rows, member_rows = [], []
-    completed_queries = 0
-    with zipfile.ZipFile(archive) as zipped:
-        # Keep compressed-member offset order to reduce HDD seek overhead.
-        ordered = sorted(needed, key=lambda j: zipped.getinfo(PREFIX + attempts[j] + "/calls.jsonl").header_offset)
-        for number, job_id in enumerate(ordered, 1):
-            records = needed[job_id]
-            member = PREFIX + attempts[job_id] + "/calls.jsonl"
-            info = zipped.getinfo(member)
-            h = hashlib.sha256()
-            pooled_hits = [None] * len(records)
-            declared_hits = [None] * len(records)
-            count = 0
-            stopped_after_all_hits = False
-            with zipped.open(info) as stream:
-                for count, line in enumerate(stream, 1):
-                    h.update(line)
-                    call = json.loads(line)
-                    value = float(call["f"])
-                    assert int(call["nfev"]) == count, (job_id, count, call["nfev"])
-                    if not math.isfinite(value):
-                        continue
-                    for k, record in enumerate(records):
-                        if pooled_hits[k] is None and value <= record["pooled_threshold"]:
-                            pooled_hits[k] = count
-                        if declared_hits[k] is None and value <= record["declared_threshold"]:
-                            declared_hits[k] = count
-                    if all(hit is not None for hit in pooled_hits + declared_hits):
-                        stopped_after_all_hits = True
-                        break
-            completed_queries += count
-            for record, pooled_hit, declared_hit in zip(records, pooled_hits, declared_hits):
-                assert pooled_hit == record["expected_pooled_hit"], (job_id, record, pooled_hit)
-                assert pooled_hit is None or (declared_hit is not None and declared_hit <= pooled_hit)
-                hit_rows.append(dict(job_id=job_id, target=record["target"],
-                    pooled_threshold=record["pooled_threshold"], declared_threshold=record["declared_threshold"],
-                    pooled_hit=pooled_hit, declared_hit=declared_hit))
-            member_rows.append(dict(job_id=job_id, member=member, queries_read=count,
-                stopped_after_all_hits=stopped_after_all_hits, crc32=f"{info.CRC:08x}",
-                full_uncompressed_bytes=info.file_size, read_prefix_sha256=h.hexdigest()))
-            if number % 500 == 0:
-                print(f"Reference recovery: {number}/{len(ordered)} saved runs; {completed_queries:,} queries read", flush=True)
-    write_csv("reference_hit_checks.csv.gz", sorted(hit_rows, key=lambda r: (r["job_id"], -r["target"])))
-    write_csv("reference_query_members.csv.gz", sorted(member_rows, key=lambda r: r["job_id"]))
-    write_json("reference_recovery_receipt.json", dict(
-        archive=str(archive.resolve()), archive_bytes=archive.stat().st_size,
-        source_analysis=str(source.resolve()), queried_saved_runs=len(needed),
-        changed_threshold_records=len(hit_rows), saved_queries_read=completed_queries,
-        exact_pooled_hit_checks=len(hit_rows), pooled_hit_mismatches=0,
-        new_objective_evaluations=0, optimizer_runs=0,
-        runs_input_sha256=sha256(DATA / "runs.csv.gz"),
-        references_input_sha256=sha256(DATA / "references.csv.gz")))
-
-
 def sign_compare(a, b):
     # Lower cost wins. Fixed absolute tolerance applies to budget fractions in [0,1].
     return "win" if a < b - 1e-12 else "loss" if a > b + 1e-12 else "tie"
 
 
 def analyze():
-    selected = {r["instance_id"]: r for r in read_csv(DATA / "selected147_instances.csv.gz")}
+    instances = {r["instance_id"]: r for r in read_csv(DATA / "instances.csv.gz")}
     references = {r["identity_group"]: r for r in read_csv(DATA / "references.csv.gz")}
     canonical = {r["job_id"]: r for r in read_csv(HERE / "canonical_run_values.csv.gz")}
     initial = {r["instance_id"]: r for r in read_csv(DATA / "initialization.csv.gz")}
     ref_hits = {(r["job_id"], float(r["target"])): r for r in read_csv(HERE / "reference_hit_checks.csv.gz")}
-    inventories = list(read_csv(HERE / "candidate_inventory.csv.gz"))
-    assert len(selected) == 147 and len(references) == 136
-    assert {r["instance_id"] for r in inventories if truth(r["eligible"])} == set(selected)
-    assert {r["instance_id"] for r in inventories if truth(r["selected"])} == set(selected)
-    counts = Counter(r["identity_group"] for r in selected.values())
-    dims = []
-    for n in sorted({int(r["n"]) for r in inventories}):
-        row = dict(n=n)
-        for suite in ("mw", "cutest_s2mpj"):
-            row[suite + "_candidates"] = sum(int(r["n"]) == n and r["suite"] == suite for r in inventories)
-            row[suite + "_retained"] = sum(int(r["n"]) == n and r["suite"] == suite and truth(r["selected"]) for r in inventories)
-        dims.append(row)
-    write_csv("candidate_distribution.csv", dims)
-    reason_patterns = Counter()
-    first_reasons = Counter()
-    for r in inventories:
-        if not truth(r["eligible"]):
-            reasons = ast.literal_eval(r["exclusion_reasons"])
-            normalized = ["verified cross-library duplicate" if s.startswith("verified cross-library duplicate") else s for s in reasons]
-            reason_patterns["; ".join(normalized)] += 1
-            first_reasons[normalized[0]] += 1
-    write_csv("exclusion_combinations.csv", [dict(reasons=k, configurations=v) for k, v in sorted(reason_patterns.items())])
-    write_csv("exclusion_first_reason.csv", [dict(first_reason=k, configurations=v) for k, v in first_reasons.items()])
+    assert len(instances) == 147 and len(references) == 136
+    assert set(instances) == set(initial)
+    counts = Counter(row["identity_group"] for row in instances.values())
     mapping = []
-    for instance_id in sorted(selected):
-        s, init = selected[instance_id], initial[instance_id]
+    for instance_id in sorted(instances):
+        s, init = instances[instance_id], initial[instance_id]
         identity = s["identity_group"]
         mapping.append(dict(instance_id=instance_id, name=s["name"], suite=s["suite"], n=s["n"],
             identity_group=identity, configurations_per_identity=counts[identity],
             initial_radius=init["radius"], coordinate_condition=init["coordinate_condition"],
-            initialization_source=init["source"], calibration_candidate_id=init["candidate_id"],
             declared_reference=references[identity]["declared_reference"],
             pooled_reference=references[identity]["unified_reference"],
             initialization_record="../data/initialization.csv.gz", starts_record="../data/starts.csv.gz"))
@@ -284,7 +140,7 @@ def analyze():
         assert method in METHODS and (job, tau) not in unique_records
         unique_records.add((job, tau))
         seen_runs.add(job)
-        identity = selected[row["instance_id"]]["identity_group"]
+        identity = instances[row["instance_id"]]["identity_group"]
         exact = canonical[job]
         assert float(exact["reference"]) == float(references[identity]["unified_reference"])
         if float(exact["reference"]) != float(row["reference"]):
@@ -389,8 +245,6 @@ def analyze():
         configurations=147, identities=136, starts_per_configuration=20, solvers=6,
         paired_tasks_per_solver=2940, runs=len(seen_runs), run_target_records=records_count,
         configuration_multiplicity_histogram=dict(sorted(Counter(counts.values()).items())),
-        candidate_configurations=len(inventories), eligible_configurations=sum(truth(r["eligible"]) for r in inventories),
-        eligible_equals_selected=True, score_truncated_eligible_membership=False,
         distinct_references=sum(float(r["declared_reference"]) != float(r["unified_reference"]) for r in references.values()),
         exactly_equal_threshold_records=reused_identical_thresholds,
         recovered_changed_threshold_records=len(ref_hits), new_objective_evaluations=0,
@@ -401,14 +255,14 @@ def analyze():
         objective_weighting="equal within identity over configurations and starts, then equal over 136 identities",
         wtl_cost_tolerance=1e-12,
         source_hashes={p.relative_to(HERE.parent).as_posix(): sha256(p) for p in
-            [DATA / "runs.csv.gz", DATA / "selected147_instances.csv.gz", DATA / "references.csv.gz",
-             DATA / "initialization.csv.gz", DATA / "starts.csv.gz", HERE / "candidate_inventory.csv.gz",
+            [DATA / "runs.csv.gz", DATA / "instances.csv.gz", DATA / "references.csv.gz",
+             DATA / "initialization.csv.gz", DATA / "starts.csv.gz",
              HERE / "reference_hit_checks.csv.gz", HERE / "canonical_run_values.csv.gz"]}))
     benchmark_dims = []
-    for dimension in sorted({int(row["n"]) for row in selected.values()}):
+    for dimension in sorted({int(row["n"]) for row in instances.values()}):
         benchmark_dims.append(dict(n=dimension,
-            mw=sum(int(row["n"]) == dimension and row["suite"] == "mw" for row in selected.values()),
-            cutest_s2mpj=sum(int(row["n"]) == dimension and row["suite"] == "cutest_s2mpj" for row in selected.values())))
+            mw=sum(int(row["n"]) == dimension and row["suite"] == "mw" for row in instances.values()),
+            cutest_s2mpj=sum(int(row["n"]) == dimension and row["suite"] == "cutest_s2mpj" for row in instances.values())))
     assert [row["n"] for row in benchmark_dims] == list(range(2, 13))
     assert sum(row["mw"] for row in benchmark_dims) == 41
     assert sum(row["cutest_s2mpj"] for row in benchmark_dims) == 106
@@ -484,20 +338,6 @@ def tables(lookup, wtl, dims):
     (HERE / "table_objective_wtl.tex").write_text("\n".join(text) + "\n", encoding="utf-8")
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--prepare-source", type=Path, help="historical analysis directory; save compact provenance inputs")
-    parser.add_argument("--recover-reference-hits", type=Path, metavar="ARCHIVE", help="read exact saved calls.jsonl members from archive; requires --prepare-source")
-    args = parser.parse_args()
-    if args.prepare_source:
-        preparation(args.prepare_source)
-    if args.recover_reference_hits:
-        if not args.prepare_source:
-            parser.error("--recover-reference-hits requires --prepare-source")
-        recover_reference_hits(args.prepare_source, args.recover_reference_hits)
+if __name__ == "__main__":
     analyze()
     print(f"Peak resident memory: {peak_memory_bytes()} bytes", flush=True)
-
-
-if __name__ == "__main__":
-    main()

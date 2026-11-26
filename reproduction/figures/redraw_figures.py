@@ -1,8 +1,4 @@
-"""Redraw the eight main figures at their final article-page widths.
-
-The saved samples, statistics, contour levels, selected states and view limits
-are inherited without modification from v13.4. Only presentation is revised.
-"""
+"""Reproduce the eight MATRO manuscript figures from the supplied data."""
 from pathlib import Path
 import gzip
 import hashlib
@@ -257,7 +253,10 @@ def method_legend(fig):
                handlelength=2.7, columnspacing=1.4, labelspacing=.6)
 
 
-def draw_profiles():
+def draw_profiles(ylabels=None, save_figure=save):
+    if ylabels is None:
+        ylabels = {"data": "Fraction of tasks solved",
+                   "performance": "Fraction of tasks within ratio"}
     report = {}
     for kind in ['data','performance']:
         fig, axes = plt.subplots(2,2,figsize=(WIDTH,4.95))
@@ -277,7 +276,7 @@ def draw_profiles():
             ax.set_ylim(0,1)
             ax.set_yticks([0,.25,.5,.75,1])
             ax.yaxis.set_major_formatter(PercentFormatter(1,decimals=0))
-            ax.set_ylabel('Fraction of problems solved')
+            ax.set_ylabel(ylabels[kind])
             if kind=='performance':
                 ax.set_xscale('log',base=2);ax.set_xlim(1,128)
                 ax.set_xticks([1,2,4,8,16,32,64,128])
@@ -293,7 +292,7 @@ def draw_profiles():
         for ax in axes[:, 1]:
             ax.set_ylabel('')
             ax.tick_params(labelleft=False)
-        save(fig,f'{kind}_profiles')
+        save_figure(fig,f'{kind}_profiles')
     return report
 
 
@@ -388,55 +387,87 @@ def draw_conditioning():
     return report
 
 
-def draw_coverage():
-    field=np.load(DATA/'coverage_field.npz')
-    fig=plt.figure(figsize=(TEXT_WIDTH,2.55))
-    axes=[fig.add_axes(p) for p in ([.08,.38,.405,.51],[.57,.38,.405,.51])]
-    cmap=colors.LinearSegmentedColormap.from_list('absolute_error',
-          ['#FAFAF7','#DEE5E7','#A6BAC5','#637E94','#2E465F'])
-    norm=colors.PowerNorm(.5,vmin=0,vmax=.4)
-    x,y=np.meshgrid(field['x'],field['y']);w=field['metric_eigenvalues']
-    extent=[field['x'].min(),field['x'].max(),field['y'].min(),field['y'].max()]
-    for i,ax in enumerate(axes):
-        inside=x*x+y*y<=1 if i==0 else w[0]*x*x+w[1]*y*y<=1
-        ax.imshow(field['error'],extent=extent,origin='lower',norm=norm,cmap=cmap,
-                   alpha=np.where(inside,1.,.06),interpolation='nearest',rasterized=True)
-        curve=field['circle'] if i==0 else field['ellipse']
-        ax.plot(*curve.T,color='#49515B',lw=.75,alpha=.9,zorder=4)
-        ax.scatter(*field['samples'].T,s=18,fc='white',ec='#343C46',lw=.75,zorder=6)
-        ax.scatter([0],[0],marker='+',s=40,lw=1,color='#343C46',zorder=7)
-        ax.set(xlim=(-2.4,2.4),ylim=(-1.2,1.2),xlabel=r'$u_1$')
-        ax.set_aspect('equal');ax.set_xticks([-2,-1,0,1,2]);ax.set_yticks([-1,0,1])
-        ax.tick_params(length=2.6,pad=2,labelsize=8)
-        ax.set_title('(a)  Sphere' if i==0 else '(b)  MATRO',loc='left',pad=6)
-        if i==0:ax.set_ylabel(r'$u_2$',labelpad=4)
-        else:ax.tick_params(labelleft=False)
-    cax=fig.add_axes([.24,.175,.57,.032])
+def draw_intro():
+    data = DATA.parent
+    state = json.loads((data / "fixed_state_input.json").read_text(encoding="utf-8"))
+    grid = np.load(DATA / "coverage_field.npz")
+    x, y = np.meshgrid(grid["x"], grid["y"])
+    # Plot along the second physical coordinate horizontally, with equal
+    # scales on both axes. This keeps the steep valley legible in a wide panel.
+    displacement = state["delta"] * np.stack((y, x), axis=-1)
+    physical = np.asarray(state["center"]) + displacement
+    a, b = physical[..., 0], physical[..., 1]
+    objective = (1-a)**2 + 100*(b-a*a)**2
+    u = (np.asarray(state["points"])-state["center"]) / state["delta"]
+    np.testing.assert_allclose(u @ grid["rotation"], grid["samples"], atol=1e-12)
+    samples = u[:, ::-1]
+    model = json.loads((data / "fixed_state_reconstruction.json").read_text(encoding="utf-8"))
+    prediction = (state["values"][0] + displacement @ model["gradient"]
+                  + .5*np.sum((displacement @ model["hessian"]) * displacement, axis=-1))
+    error = np.abs(objective - prediction)
+    curves = {key: (grid[key] @ grid["rotation"].T)[:, ::-1] for key in ("circle","ellipse")}
+    fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH, 2.06))
+    fig.subplots_adjust(left=.072, right=.988, top=.90, bottom=.35, wspace=.13)
+    geometry = axes[0]
+    geometry.contour(x, y, objective, levels=[.7, .85, 1, 1.5, 2.5, 5, 9, 16, 25],
+                     colors="#B5B9BB", linewidths=.48)
+    for key, color, ls, label in [
+        ("circle", "#B66A50", "--", "Disk"), ("ellipse", "#274C77", "-", "Ellipse")
+    ]:
+        geometry.plot(*curves[key].T, color=color, ls=ls, lw=1.2, label=label)
+    geometry.scatter([0], [0], marker="+", s=26, color="#303941", zorder=5)
+    geometry.set_title("(a)  Objective contours", loc="left")
+    geometry.legend(loc="upper center", bbox_to_anchor=(.5, -.56), ncol=2,
+                    columnspacing=.8, handlelength=1.6, fontsize=8.3)
+    cmap = colors.LinearSegmentedColormap.from_list("error",
+        ["#FAFAF7", "#DEE5E7", "#A6BAC5", "#637E94", "#2E465F"])
+    norm = colors.PowerNorm(.5, vmin=0, vmax=.4)
+    s = displacement / state["delta"]
+    ellipse_interior = np.sum((s @ state["metric"]) * s, axis=-1) <= 1
+    for ax, inside, key, title in [
+        (axes[1], x*x+y*y<=1, "circle", "(b)  Error on the disk"),
+        (axes[2], ellipse_interior, "ellipse", "(c)  Error on the ellipse")
+    ]:
+        half_dx = (grid["x"][1]-grid["x"][0])/2
+        half_dy = (grid["y"][1]-grid["y"][0])/2
+        extent = (x.min()-half_dx,x.max()+half_dx,y.min()-half_dy,y.max()+half_dy)
+        ax.imshow(error, origin="lower", extent=extent, cmap=cmap, norm=norm,
+                  alpha=np.where(inside,1.,.06), interpolation="nearest", rasterized=True)
+        ax.plot(*curves[key].T, color="#49515B", lw=.65)
+        ax.scatter(*samples.T, s=13, fc="white", ec="#343C46", lw=.65)
+        ax.scatter([0],[0],marker="+",s=36,lw=.9,color="#343C46",zorder=5)
+        ax.set_title(title, loc="left")
+        ax.tick_params(labelleft=False)
+    for ax in axes:
+        ax.set(xlim=(-2.4,2.4), ylim=(-1.2,1.2), aspect="equal",
+               xticks=[-2,0,2], yticks=[-1,0,1], xlabel=r"$s_2/\Delta$")
+        ax.tick_params(pad=2)
+        ax.xaxis.labelpad=0
+    geometry.set_ylabel(r"$s_1/\Delta$", labelpad=0)
+    cax=fig.add_axes([.466,.195,.455,.035])
     cb=fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=cmap),cax=cax,
-                   orientation='horizontal',extend='max',ticks=[0,.025,.1,.2,.4])
-    cb.ax.set_xticklabels(['0','0.025','0.1','0.2','0.4'])
-    cb.ax.tick_params(length=2,pad=2,labelsize=8)
-    cb.outline.set_linewidth(.5)
-    cb.set_label(r'Absolute prediction error  $|f(x_k+s)-m_k(s)|$',labelpad=3,fontsize=9)
-    save(fig,'interpolation_coverage')
-    return dict(grid_shape=list(field['error'].shape),square_root_color_scale=True,
-                saturation=.4)
+                    orientation="horizontal",extend="max",ticks=[0,.025,.1,.2,.4])
+    cb.ax.set_xticklabels(["0","0.025","0.1","0.2","0.4"])
+    cb.ax.tick_params(length=2,pad=1)
+    cb.set_label(r"Absolute prediction error  $|f(x_c+s)-m(s)|$",labelpad=1)
+    return fig
 
 
 if __name__ == "__main__":
     manifest = json.loads((DATA / "manifest.json").read_text())
     for entry in manifest["files"]:
-        path = HERE.parent / entry["destination"]
+        path = HERE.parent / entry["destination"].replace("\\", "/")
         assert hashlib.sha256(path.read_bytes()).hexdigest() == entry["sha256"]
     style()
+    save(draw_intro(), "interpolation_coverage")
     report = dict(figure_width_inches=WIDTH, text_width_inches=TEXT_WIDTH,
                   paper_width_points=TEXT_WIDTH*72,
-                  optimizer_evaluations=0, objective_evaluations=0,
+                  optimizer_evaluations=0, solver_objective_evaluations=0,
                   source_files_checked=len(manifest["files"]),
                   shape_plotted_rows=draw_shape(),
                   unchanged_trajectory_state_indices=draw_trajectories(),
                   profile_rows=draw_profiles(),nine_curve_rows=draw_nine(),
-                  conditioning_rows=draw_conditioning(),coverage=draw_coverage())
+                  conditioning_rows=draw_conditioning())
     try:
         import psutil
         info=psutil.Process().memory_info()

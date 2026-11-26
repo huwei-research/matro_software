@@ -13,7 +13,5 @@ identified as `matro-official-python-fullq-001`.
   147-instance study, paired initialization, reference values, profiles,
   controlled anisotropy, and mechanism figures.
 
-The experimental documentation identifies the separate compact evidence
-distribution used to reproduce the current tables and figures. Research experiment programs are maintained under `codes/experiments/`;
-use the frozen campaign sources identified by the experimental protocol. The mathematical results
-and their complete proofs are retained in the manuscript and its appendix.
+Use the [reproduction instructions](../reproduction/README.md) to rebuild
+the manuscript tables and figures from the included data.

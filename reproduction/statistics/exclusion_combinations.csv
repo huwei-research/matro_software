@@ -1,9 +1,0 @@
-reasons,configurations
-fewer than 20 percent starts solved by any method; insufficient distinction between methods,5
-nonfinite/extreme objective queries,13
-nonfinite/extreme objective queries; fewer than 20 percent starts solved by any method; insufficient distinction between methods,2
-terminal solver errors,28
-terminal solver errors; fewer than 20 percent starts solved by any method; insufficient distinction between methods,1
-terminal solver errors; nonfinite/extreme objective queries,7
-terminal solver errors; verified cross-library duplicate,1
-verified cross-library duplicate,7

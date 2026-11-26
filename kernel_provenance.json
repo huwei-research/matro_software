@@ -125,13 +125,13 @@
     }
   ],
   "release_files": {
-    "src/matro/_api.py": "28e00c26e6d6b13552579295dd2fee03fffac133f5f186d727be967bdbcdacf6",
+    "src/matro/_api.py": "5e4c5a3d16c58c854eb9140ea1fcfd96290ad1df933da17f66f4476ff916f17e",
     "src/matro/_controller.py": "a39db89c62b35ffafb5365165f9284b46c17e44194d91b06340e1d74dd1936d3",
     "src/matro/_metric.py": "847d5d9c4f605103a60e47f4412bbd5ae17a1bb19efbaec3f9258c50a2bc8f76",
     "src/matro/_metric_utils.py": "01739af9d654aeff99db9d65104aa49af9cf447ae0840c9b0942f625fcce6864",
     "src/matro/_solver.py": "9625e7eb3236cb3f5cca36e832907a1ce2eac45b2f07cb6da086017dfa4a69bc",
     "src/matro/_transport.py": "1e658e15afbdb9a6efbae269b7585eaa668bcc92b7c67a424a6824eab3930bf6",
-    "src/matro/__init__.py": "f4f72bf414dae8c1d2ffd49d577d41a6bec80735f2622fd985897607206715ec",
+    "src/matro/__init__.py": "12a6a1bf6731fe53e9e3ba07814b4f487ffde8b44b1c6a1a5b29e40665a656d8",
     "src/matro/_newuoa/generate.py": "c8231c77d260871ac302ae044fb360ec351024d991ccd7109c044a44ec20a3f0",
     "src/matro/_newuoa/generated.py": "9bcae8288e2edc0b26570374ecfe6139b8e80a31011dbef7d360d23fea62d313",
     "src/matro/_newuoa/LICENSE.txt": "5d3b2a66bef92d1b567fa7157ed50803fea659abb7ab6081fe8accab95695736",

@@ -116,14 +116,13 @@ def main():
     here = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser()
     parser.add_argument("--state", type=Path, default=here / "fixed_state_input.json")
-    parser.add_argument("--output", type=Path, default=here / "fixed_state_reconstruction.json")
+    parser.add_argument("--output", type=Path, default=here / "fixed_state_recheck.json")
     args = parser.parse_args()
     data = args.state.read_bytes()
     state = json.loads(data)
     result = reconstruct(state)
-    result.update(input_path=str(args.state.resolve()),
+    result.update(input_path=args.state.name,
                   input_sha256=hashlib.sha256(data).hexdigest(),
-                  original_source_path="D:/Desktop/2026Projects/Research/matro/notes/paper_figures_20261109/data/coverage_state.json",
                   input_state=state,
                   script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   environment=dict(python=platform.python_version(), numpy=np.__version__, scipy=scipy.__version__))

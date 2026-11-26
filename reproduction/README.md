@@ -1,43 +1,37 @@
 # Computational materials
 
-These materials accompany *Metric-Aware Trust-Region Optimization with Full
-Quadratic Interpolation*, by Wei Hu, Pengcheng Xie, Ya-Xiang Yuan and Li Zhang,
-manuscript v14.1.
+These materials reproduce Tables 1 and 2 and the eight figure PDFs in v15.6 of
+*Metric-Aware Trust Regions for Derivative-Free Optimization with Full
+Quadratic Interpolation*, by Wei Hu, Pengcheng Xie, Ya-Xiang Yuan and Li Zhang.
 
-The collection contains the configurations, compact numerical data and analysis
-programs underlying the reported results. It contains 147 benchmark instances,
-2940 instance-start pairs, and target records for 17640 runs at four accuracies.
-The saved inputs also support the eight manuscript figures and the mechanism
-comparisons. Full statistical definitions and tables are in
-`statistics/analysis.md`.
+The development benchmark contains 147 configurations and 20 starts per
+configuration. Solver performance informed the initial configurations during
+development. The comparisons in the paper describe these 2940 tasks.
+The archive includes the final inputs, the four target records for each of
+17640 runs, the data for the fixed-model example, and the plotting inputs.
 
-## Contents and reproduction
+## Reproduce the tables and figures
 
-- `data/`: initialization, starts, budgets, seeds, target counts, references,
-  mechanism quantities and compact plotting inputs.
-- `statistics/`: statistical definitions, tables and their generation program.
-- `figures/`: the manuscript figures, plotting script, style and fonts.
-- `documentation/`: implementation and experiment descriptions.
+Use Python 3.13 for the tested environment. From this directory run
 
-- `source_manifest.json`: source archive and SHA-256 digests of supplied files.
-
-After extraction, run from the directory containing this README:
-
-```text
+```sh
+python -m pip install -r data/requirements_figures.txt scipy==1.16.1
 python -X utf8 data/verify_data.py
 python -X utf8 statistics/analyze_statistics.py
+python -X utf8 data/fixed_state_reconstruction.py --output fixed_state_recheck.json
 python -X utf8 figures/redraw_figures.py
 ```
 
-Statistical analysis uses Python 3.10 or later and its standard library.
-Plotting additionally uses NumPy, pandas and Matplotlib; the recorded experiment
-environment is in `data/benchmark_environment.json`. Font files are supplied.
-The verification and plotting programs read the included data without objective
-evaluations. Numerical-data storage and analysis-memory measurements are
-documented in `data/README.md` and `statistics/README.md`.
+- Table 1 uses the success rates and mean normalized capped counts in
+  `statistics/table_paired_summary.tex`. The statistical analysis reads saved
+  target hits and evaluation budgets.
+- Table 2 uses the results for the disk and the ellipse in
+  `fixed_state_recheck.json`. Divide the ellipse value by the disk value
+  before rounding to obtain the last column.
+- Figures 1–8 are written to `figures/`. The data and the fonts used to draw
+  them are included.
 
-The full optimizer implementations, test-function sources and complete raw
-evaluation journals are maintained separately in the research repository.
-This archive supports reanalysis and figure reproduction from the saved results.
-
-Publication input check: 6,877,715 bytes of numerical input; largest input 1,182,573 bytes. Peak measured Python allocation for per-file reading was 1,295,317 bytes (CSV streamed; NPZ byte-stream check; imported libraries and rendering excluded). Budgets: 20 MiB total, 8 MiB per file, 128 MiB reading allocation.
+See [data](data/README.md) for the files, [statistics](statistics/README.md)
+for the calculations, and [the experimental protocol](../docs/experiments.md)
+for the settings and interpretation. The [manifest](source_manifest.json)
+lists the files in this reproduction package with their sizes and SHA-256 hashes.

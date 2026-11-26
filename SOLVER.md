@@ -1,6 +1,6 @@
 # MATRO solver
 
-Local release candidate **0.1.0rc2**. Install with `python -m pip install .`.
+Release candidate **0.1.0rc3**. Install with `python -m pip install .`.
 The installed package depends only on NumPy and SciPy. It does not import the
 research workspace, download code, compile Fortran, or load PDFO.
 

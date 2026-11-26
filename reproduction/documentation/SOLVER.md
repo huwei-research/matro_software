@@ -1,10 +1,6 @@
 # MATRO solver
 
-This document describes the solver maintained in the Research/matro repository,
-local release candidate **0.1.0rc1**. The manuscript source archive contains its
-documentation and compact experimental evidence. To install the solver, run
-`python -m pip install .` from the Research/matro repository root, which contains
-`pyproject.toml` and `src/matro/`.
+Install from the repository root with `python -m pip install .`.
 The installed package depends only on NumPy and SciPy. It does not import the
 research workspace, download code, compile Fortran, or load PDFO.
 
@@ -50,10 +46,9 @@ Bitwise agreement with the pinned Windows reference is claimed only for the
 reference backend and verified trajectories, not across platforms or libm builds.
 Cross-platform CI must pass before a general release; this is a local candidate.
 
-## Source verification and provenance
+## Development and provenance
 
-From the Research/matro repository root, run
-`python -m pip install '.[test]'`, `python -m pytest`, and
+Run `python -m pip install '.[test]'`, `python -m pytest`, and
 `python -m build`. See `kernel_provenance.json` for source hashes and
 `src/matro/_newuoa/provenance.json` for translated routine provenance.
 MATRO code retains the root MIT license. The translated PDFO kernel and bundled

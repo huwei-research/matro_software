@@ -52,7 +52,7 @@ pairs equally. Failed runs contribute their full budget under both aggregations.
 
 ## Main reference values
 
-The main reference is the minimum of the declared values and all finite benchmark observations for an objective, shared across methods and starts.
+The main reference is the minimum of the declared values and all finite objective values recorded during setup and the benchmark runs for an objective, shared across methods and starts.
 
 ### Success rate (%)
 
@@ -113,10 +113,10 @@ uses an absolute tolerance of $10^{-12}$ on the mean budget fractions $Q_{j,s}$.
 
 ## Reproduction
 
-From the project directory:
+From the reproduction directory:
 
 ```powershell
-python -X utf8 paper/revisions/v14_1/statistics/analyze_statistics.py
+python -X utf8 statistics/analyze_statistics.py
 ```
 
 The program reads the compact inputs in this directory and `../data/` and checks

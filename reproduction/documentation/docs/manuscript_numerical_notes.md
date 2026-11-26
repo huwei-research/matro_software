@@ -1,9 +1,5 @@
 # Numerical representation and diagnostic records
 
-These details were retained from the v13.8 implementation appendix when the
-v14.1 manuscript was edited for mathematical exposition. The numerical method
-and experimental records are unchanged.
-
 The NEWUOA Hessian is represented as `B = B_Q + Z.T @ diag(p) @ Z`, with an
 explicit symmetric part and implicit coefficients. After a metric transformation,
 the transformed Hessian is stored explicitly, the implicit coefficients are set
@@ -18,5 +14,4 @@ state-variable conventions remain specified in [implementation.md](implementatio
 Across 2940 benchmark runs, 542266 of 644748 nontrivial metric proposals passed
 the numerical checks (84.11 percent). Most rejections arose from the condition
 number of the transformed design matrix or the existing-model residual.
-The complete diagnostic summary and its verifier remain in the compact data
-and reviews directories. These diagnostic counts are not additional optimizer runs.
+The aggregated counts are in [the diagnostic summary](../../data/transport_diagnostics_v13_1.json).

@@ -183,8 +183,8 @@
       "sha256": "49f431cb16c9d3a52897292021c66dd1957cf6d547730669660e1f32d735e603"
     },
     "documentation/SOLVER.md": {
-      "bytes": 3124,
-      "sha256": "6239f1df9792998b70b3e42e7a810d3b2f4a7f53374c82e5a43eae7df24ce7e0"
+      "bytes": 3087,
+      "sha256": "a6aa2b2f3e646d2e6e0b4c72d8a7970490c83196332e18d22434af3c5f450aa4"
     },
     "documentation/docs/README.md": {
       "bytes": 896,
@@ -327,5 +327,5 @@
       "sha256": "09e54d29676c1e0e79d7cbc34a8b2ba0fb5233e0aa41bd9220c1bf4101d8177e"
     }
   },
-  "total_bytes": 7666299
+  "total_bytes": 7666262
 }

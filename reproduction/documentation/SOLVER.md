@@ -44,7 +44,7 @@ memory for a documented 58-byte local CPU routine. `portable` avoids executable
 memory on every platform. The Python optimization operations are unchanged.
 Bitwise agreement with the pinned Windows reference is claimed only for the
 reference backend and verified trajectories, not across platforms or libm builds.
-Cross-platform CI must pass before a general release; this is a local candidate.
+This version is a public release candidate.
 
 ## Development and provenance
 

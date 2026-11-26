@@ -4,7 +4,7 @@ Copyright (c) 2026 Research Harness contributors.
 
 Original skill instructions and documentation are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Attribute Research Harness contributors and the version used, and indicate modifications. Original executable code and code examples use the MIT License below.
 
-Upstream K-Dense material retains its [MIT license](LICENSE.txt); modifications are described in [sources](references/visualization_sources.md).
+Upstream K-Dense material retains its [MIT license](LICENSE_upstream.txt); modifications are described in the [style notes](README.md).
 
 MIT License
 

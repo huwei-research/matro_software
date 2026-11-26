@@ -199,8 +199,8 @@
       "sha256": "bd934c6853526899b108d471c25314472308759fc93081fb617cf648c2444c9d"
     },
     "documentation/docs/implementation.md": {
-      "bytes": 14765,
-      "sha256": "6e08d6a1d57979700e91eebc524f1f0e046ade6d8da2a3ac079e424fd518f476"
+      "bytes": 14861,
+      "sha256": "6123963a19f7cbbb83cd22176bed39eb3d85eef3ea61f551f116ee8e01599da0"
     },
     "documentation/docs/manuscript_numerical_notes.md": {
       "bytes": 1091,
@@ -239,8 +239,8 @@
       "sha256": "8b7ac583060a9ed5624b23705250e19059e7dd41a9274ab5ba5453cd121822a7"
     },
     "figures/style/LICENSE.md": {
-      "bytes": 1610,
-      "sha256": "7612ea5c51e3de17c4d78af113ca105bfe2e2b310f7149fec0c4f75a7cf11ac5"
+      "bytes": 1601,
+      "sha256": "4d7c71ec8a09b36e5c12769bd2ebc1156040bd136eeafe752dfc00107b0e1dc4"
     },
     "figures/style/LICENSE_upstream.txt": {
       "bytes": 1068,
@@ -327,5 +327,5 @@
       "sha256": "09e54d29676c1e0e79d7cbc34a8b2ba0fb5233e0aa41bd9220c1bf4101d8177e"
     }
   },
-  "total_bytes": 7666212
+  "total_bytes": 7666299
 }
